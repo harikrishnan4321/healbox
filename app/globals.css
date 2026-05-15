@@ -163,6 +163,7 @@ img {
 }
 
 .nav-cta,
+.student-cta,
 .pro-cta,
 .primary,
 .secondary,
@@ -178,6 +179,7 @@ img {
 }
 
 .nav-cta,
+.student-cta,
 .pro-cta,
 .primary,
 .admin-form button {
@@ -194,6 +196,7 @@ img {
   gap: 9px;
 }
 
+.student-cta,
 .pro-cta {
   justify-self: end;
   min-height: 48px;
@@ -205,21 +208,30 @@ img {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
+.student-cta svg,
 .pro-cta svg {
   width: 27px;
   height: 27px;
   color: #35d7ee;
 }
 
+.student-cta span,
 .pro-cta span {
   display: grid;
   gap: 2px;
   font-size: 0.74rem;
 }
 
+.student-cta strong,
 .pro-cta strong {
   color: #ffb21e;
   font-size: 0.84rem;
+}
+
+.student-cta {
+  background:
+    linear-gradient(135deg, rgba(50, 216, 199, 0.2), rgba(255, 211, 94, 0.08)),
+    rgba(255, 255, 255, 0.1);
 }
 
 .nav-cta {
@@ -230,7 +242,8 @@ img {
   display: none;
 }
 
-.mobile-register {
+.mobile-register,
+.mobile-student-register {
   display: none !important;
 }
 
@@ -807,6 +820,8 @@ p {
   border-radius: 8px;
   min-height: 250px;
   animation: revealUp 0.6s ease both;
+  background: #0a211d;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .gif-card::before {
@@ -830,9 +845,12 @@ p {
 }
 
 .gallery-card img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   transition: transform 0.4s ease;
 }
 
@@ -1015,6 +1033,15 @@ p {
   font: inherit;
   font-weight: 900;
   cursor: pointer;
+}
+
+.student-form-grid {
+  grid-template-columns: 1fr;
+}
+
+.student-form .form-banner {
+  background:
+    linear-gradient(135deg, rgba(15, 141, 122, 0.88), rgba(16, 32, 29, 0.96));
 }
 
 .registrations-panel {
@@ -1732,6 +1759,15 @@ p {
     font-weight: 900;
   }
 
+  .mobile-student-register {
+    display: inline-flex !important;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.12);
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    font-weight: 900;
+  }
+
   .nav-scrim {
     position: fixed;
     inset: 0;
@@ -1925,3 +1961,4 @@ p {
     flex: 1;
   }
 }
+

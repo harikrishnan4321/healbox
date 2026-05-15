@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { BriefcaseBusiness, ChevronDown, FileBadge2, Menu, X } from "lucide-react";
+import { BriefcaseBusiness, ChevronDown, FileBadge2, GraduationCap, Menu, X } from "lucide-react";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -43,8 +43,13 @@ export function SiteHeader() {
             <Link className={pathname === item.href ? "active-link" : ""} href={item.href} key={item.href} onClick={closeMenu}>{item.label}</Link>
           ))}
           <Link className="mobile-register" href="/register" onClick={closeMenu}>Register Professional</Link>
+          <Link className="mobile-student-register" href="/student-registration" onClick={closeMenu}>Student Registration</Link>
         </nav>
         <div className="nav-actions">
+          <Link className="student-cta" href="/student-registration">
+            <GraduationCap />
+            <span>Student<strong>Register</strong></span>
+          </Link>
           <Link className="pro-cta" href="/register">
             <FileBadge2 />
             <span>Professional<strong>Register</strong></span>
@@ -79,6 +84,7 @@ export function SiteFooter() {
       <div>
         <h3>Connect</h3>
         <Link href="/register">Professional Register</Link>
+        <Link href="/student-registration">Student Registration</Link>
         <Link href="/hello">Contact HealBoxx</Link>
         <Link href="/corporate-eap">Corporate Wellness</Link>
       </div>

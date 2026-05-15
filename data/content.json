@@ -123,5 +123,21 @@
       "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=900&q=80"
     }
   ],
-  "registrations": []
+  "registrations": [],
+  "studentRegistrations": [
+    {
+      "id": "qerio-1778835734605",
+      "studentName": "qerio",
+      "collegeName": "qwsdfghj",
+      "phone": "1234567888889",
+      "createdAt": "2026-05-15T09:02:14.605Z"
+    },
+    {
+      "id": "sdfgh-1778833914527",
+      "studentName": "sdfgh",
+      "collegeName": "sdfghj",
+      "phone": "1234567890",
+      "createdAt": "2026-05-15T08:31:54.527Z"
+    }
+  ]
 }
