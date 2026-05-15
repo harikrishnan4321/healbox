@@ -1,94 +1,63 @@
-import { ArrowRight, CalendarCheck, HeartPulse, Languages, LockKeyhole, Menu, Phone, Play, ShieldCheck, Star, UsersRound } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Download, Languages, LockKeyhole, Phone, Play, ShieldCheck, Star, UsersRound } from "lucide-react";
 import { ExpertsSection, GallerySection } from "@/components/DynamicSections";
-
-const services = [
-  "Parenting counselling",
-  "Relationship counselling",
-  "Interview skills counselling",
-  "Depression counselling",
-  "Pregnancy counselling",
-  "Teen counselling"
-];
-
-const benefits = [
-  ["Affordable", "High-quality care through live sessions and guided support."],
-  ["Convenient", "Talk at your own pace, from home, office or travel."],
-  ["Accessible", "Support designed for cities, towns and remote areas."],
-  ["Inclusive", "Regional language care for comfortable conversations."],
-  ["Confidential", "Private sessions with secure, respectful handling."],
-  ["Experienced", "Professionals who blend empathy with evidence-led care."]
-];
+import { ProfessionalStrip, SiteFooter, SiteHeader } from "@/components/SiteChrome";
+import { benefits, services } from "@/data/siteContent";
 
 export default function Home() {
   return (
     <main>
-      <header className="nav">
-        <a className="brand" href="#home"><HeartPulse /> Heal Boxx</a>
-        <nav>
-          <a href="#home">Home</a>
-          <a href="#services">Services</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#experts">Experts</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <a className="nav-cta" href="/admin">Admin</a>
-        <button className="menu-btn" aria-label="Open menu"><Menu /></button>
-      </header>
+      <SiteHeader />
 
-      <section className="hero" id="home">
-        <div className="hero-copy">
+      <section className="hero video-hero">
+        <video className="hero-video" autoPlay muted loop playsInline>
+          <source src="https://healboxx.com/assets1/video/introVideo.mp4" type="video/mp4" />
+          <source src="https://healboxx.com/assets1/video/introVideo.webm" type="video/webm" />
+        </video>
+        <div className="video-shade" />
+        <div className="hero-copy video-copy">
           <span className="eyebrow"><ShieldCheck size={16} /> Mental wellness, anywhere</span>
           <h1>Heal on a call from anywhere, at any time.</h1>
           <p>Tech-enabled therapy, coaching and wellness support for emotional, psychological, social and lifestyle needs.</p>
           <div className="hero-actions">
-            <a className="primary" href="#experts">Meet experts <ArrowRight size={18} /></a>
-            <a className="secondary" href="#gallery"><Play size={18} /> View gallery</a>
-          </div>
-          <div className="metrics">
-            <strong>15+<span>Years experience</span></strong>
-            <strong>100+<span>Therapists</span></strong>
-            <strong>500+<span>Lives supported</span></strong>
+            <Link className="primary" href="/experts">Meet experts <ArrowRight size={18} /></Link>
+            <Link className="secondary glass-action" href="/gallery"><Play size={18} /> View gallery</Link>
           </div>
         </div>
-        <div className="hero-media">
-          <img src="https://images.unsplash.com/photo-1556760544-74068565f05c?auto=format&fit=crop&w=1200&q=85" alt="Counsellor speaking with a client" />
-          <div className="hero-card">
-            <CalendarCheck />
-            <span>24/7 online support</span>
-          </div>
+        <div className="hero-features">
+          <strong>15+<span>Years of Experience</span></strong>
+          <strong>100+<span>Therapists</span></strong>
+          <strong>500+<span>Get help and healed</span></strong>
         </div>
       </section>
 
+      <ProfessionalStrip />
+
       <section className="section intro">
         <div>
-          <span className="eyebrow"><Phone size={16} /> hello@healboxx.com | +91 72000 45559</span>
+          <span className="eyebrow"><Phone size={16} /> About HealBoxx</span>
           <h2>Care that is warm, practical and easy to reach.</h2>
         </div>
         <p>Heal Boxx helps people work through stress, relationships, confidence, career pressure and life transitions with professional support built around everyday life.</p>
       </section>
 
-      <section className="section services" id="services">
+      <section className="section services-preview">
         <div className="section-head">
           <span className="eyebrow"><UsersRound size={16} /> Our services</span>
           <h2>Counselling and coaching for real moments.</h2>
           <p>Choose focused support for personal, family, student and workplace wellbeing.</p>
         </div>
         <div className="service-grid">
-          {services.map((service, index) => (
-            <article className="service-card" key={service}>
-              <img src={`https://images.unsplash.com/photo-${[
-                "1517048676732-d65bc937f952",
-                "1529333166437-7750a6dd5a70",
-                "1551836022-d5d88e9218df",
-                "1506126613408-eca07ce68773",
-                "1516585427167-9f4af9627e6c",
-                "1522202176988-66273c2fd55f"
-              ][index]}?auto=format&fit=crop&w=900&q=80`} alt={service} />
-              <h3>{service}</h3>
-              <a href="#contact">Book session <ArrowRight size={16} /></a>
+          {services.slice(0, 3).map((service) => (
+            <article className="service-card lifted" key={service.title}>
+              <img src={service.image} alt={service.title} />
+              <h3>{service.title}</h3>
+              <p>{service.text}</p>
+              <Link href="/contact">Book session <ArrowRight size={16} /></Link>
             </article>
           ))}
         </div>
+        <Link className="section-link" href="/services">Explore all services <ArrowRight size={18} /></Link>
       </section>
 
       <section className="video-strip">
@@ -99,6 +68,19 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section app-download">
+        <div>
+          <span className="eyebrow"><Download size={16} /> Download App</span>
+          <h2>Carry your therapist, resources and calm resets with you.</h2>
+          <p>Inspired by HealBoxx's app-first experience, this section brings the missing app download moment into the page with clear Google Play and App Store actions.</p>
+          <div className="store-actions">
+            <a href="https://play.google.com/store/apps/details?id=com.healbox" target="_blank">Google Play</a>
+            <a href="https://apps.apple.com/us/app/healboxx/id6444076704" target="_blank">App Store</a>
+          </div>
+        </div>
+        <img src="https://healboxx.com/assets1/img/mockup.png" alt="HealBoxx app mockup" />
+      </section>
+
       <section className="section benefits">
         <div className="section-head compact">
           <span className="eyebrow"><Star size={16} /> Primary benefits</span>
@@ -106,7 +88,7 @@ export default function Home() {
         </div>
         <div className="benefit-grid">
           {benefits.map(([title, text]) => (
-            <article key={title}>
+            <article className="lifted" key={title}>
               <LockKeyhole size={20} />
               <h3>{title}</h3>
               <p>{text}</p>
@@ -128,8 +110,8 @@ export default function Home() {
         </div>
       </section>
 
-      <GallerySection />
-      <ExpertsSection />
+      <GallerySection preview />
+      <ExpertsSection preview />
 
       <section className="section testimonials">
         <div className="section-head compact">
@@ -137,28 +119,13 @@ export default function Home() {
           <h2>People feel seen, heard and supported.</h2>
         </div>
         <div className="testimonial-grid">
-          <blockquote>“The session helped me understand my stress without feeling judged.”<span>Working professional</span></blockquote>
-          <blockquote>“Flexible online counselling made it possible to stay consistent.”<span>College student</span></blockquote>
-          <blockquote>“Our EAP session gave the team practical ways to reset.”<span>HR manager</span></blockquote>
+          <blockquote>"The session helped me understand my stress without feeling judged."<span>Working professional</span></blockquote>
+          <blockquote>"Flexible online counselling made it possible to stay consistent."<span>College student</span></blockquote>
+          <blockquote>"Our EAP session gave the team practical ways to reset."<span>HR manager</span></blockquote>
         </div>
       </section>
 
-      <footer className="footer" >
-        <div>id="contact"
-          <a className="brand" href="#home"><HeartPulse /> Heal Boxx</a>
-          <p>Your one-stop solution for mental health, therapy, coaching and wellness.</p>
-        </div>
-        <div>
-          <h3>Contact</h3>
-          <a href="mailto:hello@healboxx.com">hello@healboxx.com</a>
-          <a href="tel:+917200045559">+91 72000 45559</a>
-        </div>
-        <div>
-          <h3>Admin</h3>
-          <a href="/admin/gallery">Add gallery</a>
-          <a href="/admin/experts">Add experts</a>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

@@ -27,6 +27,34 @@
       "type": "image",
       "src": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
       "caption": "EAP and workplace sessions shaped for real teams."
+    },
+    {
+      "id": "app-therapy",
+      "title": "App-based care",
+      "type": "image",
+      "src": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+      "caption": "Digital access for counselling, resources and wellness support."
+    },
+    {
+      "id": "mindfulness-motion",
+      "title": "Mindfulness motion",
+      "type": "gif",
+      "src": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbG9pbGJqbDEyNWd3bXJ6dXptcTViMnhsOWgxamxhaWRndm5mOHBlNyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/26BRv0ThflsHCqDrG/giphy.gif",
+      "caption": "Light animated moments for breathing and grounding."
+    },
+    {
+      "id": "wellness-workshop",
+      "title": "Wellness workshop",
+      "type": "image",
+      "src": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80",
+      "caption": "Guided sessions for teams, students and communities."
+    },
+    {
+      "id": "gentle-reset",
+      "title": "Gentle reset",
+      "type": "gif",
+      "src": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExenp1b3B6dWhhNDY2eHN6a2l5N3E3OTFma3BqY21lamNpYzE1OTdhbiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3o6Zt481isNVuQI1l6/giphy.gif",
+      "caption": "Small rituals that make the day feel lighter."
     }
   ],
   "experts": [
@@ -61,6 +89,39 @@
       "specialty": "Leadership, stress management, corporate growth",
       "experience": "10+ years",
       "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "id": "maya-raman",
+      "name": "Dr. Maya Raman",
+      "role": "Clinical Psychologist",
+      "specialty": "Anxiety, burnout, trauma-informed care",
+      "experience": "11+ years",
+      "image": "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "id": "arjun-menon",
+      "name": "Mr. Arjun Menon",
+      "role": "Corporate Wellness Coach",
+      "specialty": "EAP programs, leadership resilience, team wellbeing",
+      "experience": "8+ years",
+      "image": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "id": "leena-jose",
+      "name": "Ms. Leena Jose",
+      "role": "Family Counsellor",
+      "specialty": "Parenting, relationship care, adolescent wellbeing",
+      "experience": "13+ years",
+      "image": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "id": "karthik-rao",
+      "name": "Dr. Karthik Rao",
+      "role": "Psychiatry Consultant",
+      "specialty": "Mood care, sleep, stress and medical referrals",
+      "experience": "14+ years",
+      "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=900&q=80"
     }
-  ]
+  ],
+  "registrations": []
 }
