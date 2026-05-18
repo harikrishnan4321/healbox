@@ -29,19 +29,17 @@ export default function RegistrationForm() {
     setSaving(true);
     setStatus("");
 
-    const response = await fetch("/api/registrations", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form)
-    });
+    const saved = JSON.parse(localStorage.getItem("healboxxProfessionalRegistrations") || "[]");
+    const registration = {
+      ...form,
+      id: `${form.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-${Date.now()}`,
+      status: "New",
+      createdAt: new Date().toISOString()
+    };
 
-    if (response.ok) {
-      setForm(emptyForm);
-      setStatus("Registration submitted. The HealBoxx team will review your details.");
-    } else {
-      const error = await response.json();
-      setStatus(error.message || "Unable to submit registration.");
-    }
+    localStorage.setItem("healboxxProfessionalRegistrations", JSON.stringify([registration, ...saved]));
+    setForm(emptyForm);
+    setStatus("Registration submitted. Your details are saved for the HealBoxx team.");
 
     setSaving(false);
   }

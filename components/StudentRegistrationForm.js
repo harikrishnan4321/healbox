@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { GraduationCap, Loader2, Send } from "lucide-react";
 
 const emptyForm = {
@@ -17,19 +17,9 @@ const fallbackColleges = [
 
 export default function StudentRegistrationForm() {
   const [form, setForm] = useState(emptyForm);
-  const [colleges, setColleges] = useState(fallbackColleges);
+  const [colleges] = useState(fallbackColleges);
   const [status, setStatus] = useState("");
   const [saving, setSaving] = useState(false);
-
-  useEffect(() => {
-    fetch("/api/colleges")
-      .then((response) => (response.ok ? response.json() : fallbackColleges))
-      .then((items) => {
-        const visibleColleges = items.filter((item) => item.visible !== false);
-        setColleges(visibleColleges.length ? visibleColleges : fallbackColleges);
-      })
-      .catch(() => setColleges(fallbackColleges));
-  }, []);
 
   function update(event) {
     setForm({ ...form, [event.target.name]: event.target.value });
@@ -40,19 +30,16 @@ export default function StudentRegistrationForm() {
     setSaving(true);
     setStatus("");
 
-    const response = await fetch("/api/student-registrations", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form)
-    });
+    const saved = JSON.parse(localStorage.getItem("healboxxStudentRegistrations") || "[]");
+    const registration = {
+      ...form,
+      id: `${form.studentName.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-${Date.now()}`,
+      createdAt: new Date().toISOString()
+    };
 
-    if (response.ok) {
-      setForm(emptyForm);
-      setStatus("Student registration submitted successfully.");
-    } else {
-      const error = await response.json();
-      setStatus(error.message || "Unable to submit student registration.");
-    }
+    localStorage.setItem("healboxxStudentRegistrations", JSON.stringify([registration, ...saved]));
+    setForm(emptyForm);
+    setStatus("Student registration submitted successfully.");
 
     setSaving(false);
   }

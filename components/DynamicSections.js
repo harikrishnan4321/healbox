@@ -3,12 +3,13 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Award, ChevronLeft, ChevronRight, Filter, ImageIcon, Loader2, Search, Sparkles } from "lucide-react";
+import content from "@/data/content.json";
 
 const pageSize = 6;
 
 export function GallerySection({ preview = false }) {
-  const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [items] = useState(content.gallery || []);
+  const [loading] = useState(false);
   const [type, setType] = useState("all");
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
@@ -18,11 +19,6 @@ export function GallerySection({ preview = false }) {
     if (requestedType === "image" || requestedType === "gif") {
       setType(requestedType);
     }
-
-    fetch("/api/gallery")
-      .then((res) => res.json())
-      .then(setItems)
-      .finally(() => setLoading(false));
   }, []);
 
   const filtered = items.filter((item) => {
@@ -77,18 +73,11 @@ export function GallerySection({ preview = false }) {
 }
 
 export function ExpertsSection({ preview = false }) {
-  const [experts, setExperts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [experts] = useState(content.experts || []);
+  const [loading] = useState(false);
   const [role, setRole] = useState("all");
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
-
-  useEffect(() => {
-    fetch("/api/experts")
-      .then((res) => res.json())
-      .then(setExperts)
-      .finally(() => setLoading(false));
-  }, []);
 
   const roles = ["all", ...Array.from(new Set(experts.map((expert) => expert.role)))];
   const filtered = experts.filter((expert) => {

@@ -2,16 +2,16 @@
 
 import { useEffect, useState } from "react";
 import { GraduationCap, Loader2 } from "lucide-react";
+import content from "@/data/content.json";
 
 export default function StudentRegistrationsAdmin() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/student-registrations")
-      .then((response) => response.json())
-      .then(setItems)
-      .finally(() => setLoading(false));
+    const saved = JSON.parse(localStorage.getItem("healboxxStudentRegistrations") || "[]");
+    setItems([...saved, ...(content.studentRegistrations || [])]);
+    setLoading(false);
   }, []);
 
   return (
