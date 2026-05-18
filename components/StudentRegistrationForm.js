@@ -15,6 +15,9 @@ const fallbackColleges = [
   { id: "loyola-college", name: "Loyola College", visible: true }
 ];
 
+const labelClass = "grid gap-2 font-black text-[#334540]";
+const fieldClass = "min-h-12 w-full rounded-lg border border-[#dce8e3] bg-[#fbfdf9] px-4 py-3 text-[#10201d] outline-none transition focus:border-[#0f8d7a] focus:ring-4 focus:ring-[#0f8d7a]/10";
+
 export default function StudentRegistrationForm() {
   const [form, setForm] = useState(emptyForm);
   const [colleges] = useState(fallbackColleges);
@@ -45,34 +48,34 @@ export default function StudentRegistrationForm() {
   }
 
   return (
-    <form className="register-form student-form" onSubmit={submit}>
-      <div className="form-banner">
-        <GraduationCap />
+    <form className="grid gap-5 rounded-lg border border-[#dce8e3] bg-white/90 p-6 shadow-2xl md:p-9" onSubmit={submit}>
+      <div className="flex items-center gap-4 rounded-lg bg-gradient-to-br from-[#0f8d7a] to-[#10201d] p-4 text-white">
+        <GraduationCap className="text-[#ffd35e]" />
         <div>
-          <span>Student onboarding</span>
-          <h2>Student Registration</h2>
+          <span className="text-xs font-black uppercase tracking-wide text-[#9debdc]">Student onboarding</span>
+          <h2 className="mt-1 text-2xl font-black">Student Registration</h2>
         </div>
       </div>
 
-      <div className="form-grid student-form-grid">
-        <label>Student Name<input name="studentName" value={form.studentName} onChange={update} required /></label>
-        <label>
+      <div className="grid gap-4">
+        <label className={labelClass}>Student Name<input className={fieldClass} name="studentName" value={form.studentName} onChange={update} required /></label>
+        <label className={labelClass}>
           College Name
-          <select name="collegeName" value={form.collegeName} onChange={update} required>
+          <select className={fieldClass} name="collegeName" value={form.collegeName} onChange={update} required>
             <option value="">Select college</option>
             {colleges.map((college) => (
               <option key={college.id || college.name} value={college.name}>{college.name}</option>
             ))}
           </select>
         </label>
-        <label className="wide">Phone Number<input name="phone" value={form.phone} onChange={update} required /></label>
+        <label className={labelClass}>Phone Number<input className={fieldClass} name="phone" value={form.phone} onChange={update} required /></label>
       </div>
 
-      <button type="submit" disabled={saving}>
-        {saving ? <Loader2 className="spin" /> : <Send />}
+      <button className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-gradient-to-r from-[#0f8d7a] to-[#13aa91] px-5 font-black text-white shadow-lg disabled:opacity-60" type="submit" disabled={saving}>
+        {saving ? <Loader2 className="animate-spin" /> : <Send />}
         {saving ? "Submitting..." : "Submit Student Registration"}
       </button>
-      {status && <p className="form-status">{status}</p>}
+      {status && <p className="font-black text-[#096454]">{status}</p>}
     </form>
   );
 }

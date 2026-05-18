@@ -4,124 +4,143 @@ import { ExpertsSection, GallerySection } from "@/components/DynamicSections";
 import { ProfessionalStrip, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { benefits, services } from "@/data/siteContent";
 
+const section = "px-5 py-20 md:px-14";
+const eyebrow = "inline-flex items-center gap-2 text-xs font-black uppercase tracking-wide text-[#096454]";
+const sectionTitle = "mt-3 text-balance text-4xl font-black leading-none text-[#10201d] md:text-6xl";
+const muted = "text-lg leading-8 text-[#63706d]";
+const primary = "inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#0f8d7a] to-[#13aa91] px-5 font-black text-white shadow-lg";
+const secondary = "inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-white/30 bg-white/15 px-5 font-black text-white backdrop-blur";
+const card = "overflow-hidden rounded-lg border border-[#dce8e3] bg-white shadow-[0_16px_40px_rgba(25,53,48,.08)] transition hover:-translate-y-1 hover:shadow-2xl";
+
 export default function Home() {
   return (
     <main>
       <SiteHeader />
 
-      <section className="hero video-hero">
-        <video className="hero-video" autoPlay muted loop playsInline>
+      <section className="relative grid min-h-[680px] items-end overflow-hidden bg-[#07110f] px-5 py-12 text-white md:min-h-[calc(100vh-74px)] md:grid-cols-[.9fr_.58fr] md:px-14">
+        <video className="absolute inset-0 h-full w-full scale-105 object-cover opacity-80" autoPlay muted loop playsInline>
           <source src="https://healboxx.com/assets1/video/introVideo.mp4" type="video/mp4" />
           <source src="https://healboxx.com/assets1/video/introVideo.webm" type="video/webm" />
         </video>
-        <div className="video-shade" />
-        <div className="hero-copy video-copy">
-          <span className="eyebrow"><ShieldCheck size={16} /> Mental wellness, anywhere</span>
-          <h1>Heal on a call from anywhere, at any time.</h1>
-          <p>Tech-enabled therapy, coaching and wellness support for emotional, psychological, social and lifestyle needs.</p>
-          <div className="hero-actions">
-            <Link className="primary" href="/experts">Meet experts <ArrowRight size={18} /></Link>
-            <Link className="secondary glass-action" href="/gallery"><Play size={18} /> View gallery</Link>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050f0d]/90 via-[#050f0d]/55 to-[#050f0d]/80" />
+        <div className="relative z-10 self-center">
+          <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wide text-[#9debdc]"><ShieldCheck size={16} /> Mental wellness, anywhere</span>
+          <h1 className="mt-5 max-w-3xl text-balance text-6xl font-black leading-none md:text-8xl">Heal on a call from anywhere, at any time.</h1>
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70">Tech-enabled therapy, coaching and wellness support for emotional, psychological, social and lifestyle needs.</p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link className={primary} href="/experts">Meet experts <ArrowRight size={18} /></Link>
+            <Link className={secondary} href="/gallery"><Play size={18} /> View gallery</Link>
           </div>
         </div>
-        <div className="hero-features">
-          <strong>15+<span>Years of Experience</span></strong>
-          <strong>100+<span>Therapists</span></strong>
-          <strong>500+<span>Get help and healed</span></strong>
+        <div className="relative z-10 grid gap-3 self-end">
+          {[
+            ["15+", "Years of Experience"],
+            ["100+", "Therapists"],
+            ["500+", "Get help and healed"]
+          ].map(([number, label]) => (
+            <strong className="grid rounded-lg border border-white/20 bg-white/15 p-5 text-2xl font-black text-[#ffd35e] backdrop-blur" key={label}>{number}<span className="mt-1 text-sm text-white/75">{label}</span></strong>
+          ))}
         </div>
       </section>
 
       <ProfessionalStrip />
 
-      <section className="section intro">
+      <section className={`${section} grid gap-8 border-y border-[#dce8e3] bg-white md:grid-cols-[.85fr_1fr]`}>
         <div>
-          <span className="eyebrow"><Phone size={16} /> About HealBoxx</span>
-          <h2>Care that is warm, practical and easy to reach.</h2>
+          <span className={eyebrow}><Phone size={16} /> About HealBoxx</span>
+          <h2 className={sectionTitle}>Care that is warm, practical and easy to reach.</h2>
         </div>
-        <p>Heal Boxx helps people work through stress, relationships, confidence, career pressure and life transitions with professional support built around everyday life.</p>
+        <p className={muted}>Heal Boxx helps people work through stress, relationships, confidence, career pressure and life transitions with professional support built around everyday life.</p>
       </section>
 
-      <section className="section services-preview">
-        <div className="section-head">
-          <span className="eyebrow"><UsersRound size={16} /> Our services</span>
-          <h2>Counselling and coaching for real moments.</h2>
-          <p>Choose focused support for personal, family, student and workplace wellbeing.</p>
+      <section className={section}>
+        <div className="mb-9 max-w-3xl">
+          <span className={eyebrow}><UsersRound size={16} /> Our services</span>
+          <h2 className={sectionTitle}>Counselling and coaching for real moments.</h2>
+          <p className={`${muted} mt-4`}>Choose focused support for personal, family, student and workplace wellbeing.</p>
         </div>
-        <div className="service-grid">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {services.slice(0, 3).map((service) => (
-            <article className="service-card lifted" key={service.title}>
-              <img src={service.image} alt={service.title} />
-              <h3>{service.title}</h3>
-              <p>{service.text}</p>
-              <Link href="/contact">Book session <ArrowRight size={16} /></Link>
+            <article className={card} key={service.title}>
+              <img className="aspect-video w-full object-cover" src={service.image} alt={service.title} />
+              <div className="grid gap-3 p-5">
+                <h3 className="text-2xl font-black text-[#10201d]">{service.title}</h3>
+                <p className="leading-7 text-[#63706d]">{service.text}</p>
+                <Link className="inline-flex items-center gap-2 font-black text-[#096454]" href="/contact">Book session <ArrowRight size={16} /></Link>
+              </div>
             </article>
           ))}
         </div>
-        <Link className="section-link" href="/services">Explore all services <ArrowRight size={18} /></Link>
+        <Link className="mt-7 inline-flex items-center gap-2 font-black text-[#096454]" href="/services">Explore all services <ArrowRight size={18} /></Link>
       </section>
 
-      <section className="video-strip">
-        <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&w=1400&q=85" alt="Peaceful wellness session" />
-        <div>
-          <button aria-label="Play promo"><Play /></button>
-          <h2>How it works? Play and watch.</h2>
+      <section className="relative grid min-h-[430px] place-items-center overflow-hidden text-center text-white">
+        <img className="absolute inset-0 h-full w-full object-cover brightness-60" src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&w=1400&q=85" alt="Peaceful wellness session" />
+        <div className="relative z-10 grid place-items-center gap-5 p-8">
+          <button className="grid h-20 w-20 place-items-center rounded-full bg-[#f47c68]" aria-label="Play promo"><Play /></button>
+          <h2 className="text-4xl font-black md:text-6xl">How it works? Play and watch.</h2>
         </div>
       </section>
 
-      <section className="section app-download">
+      <section className={`${section} grid items-center gap-10 bg-white md:grid-cols-[1fr_.72fr]`}>
         <div>
-          <span className="eyebrow"><Download size={16} /> Download App</span>
-          <h2>Carry your therapist, resources and calm resets with you.</h2>
-          <p>Inspired by HealBoxx's app-first experience, this section brings the missing app download moment into the page with clear Google Play and App Store actions.</p>
-          <div className="store-actions">
-            <a href="https://play.google.com/store/apps/details?id=com.healbox" target="_blank">Google Play</a>
-            <a href="https://apps.apple.com/us/app/healboxx/id6444076704" target="_blank">App Store</a>
+          <span className={eyebrow}><Download size={16} /> Download App</span>
+          <h2 className={sectionTitle}>Carry your therapist, resources and calm resets with you.</h2>
+          <p className={`${muted} mt-4`}>Inspired by HealBoxx's app-first experience, this section brings the missing app download moment into the page with clear Google Play and App Store actions.</p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a className="rounded-lg bg-[#10201d] px-5 py-3 font-black text-white" href="https://play.google.com/store/apps/details?id=com.healbox" target="_blank">Google Play</a>
+            <a className="rounded-lg bg-[#10201d] px-5 py-3 font-black text-white" href="https://apps.apple.com/us/app/healboxx/id6444076704" target="_blank">App Store</a>
           </div>
         </div>
-        <img src="https://healboxx.com/assets1/img/mockup.png" alt="HealBoxx app mockup" />
+        <img className="mx-auto max-h-[520px] object-contain" src="https://healboxx.com/assets1/img/mockup.png" alt="HealBoxx app mockup" />
       </section>
 
-      <section className="section benefits">
-        <div className="section-head compact">
-          <span className="eyebrow"><Star size={16} /> Primary benefits</span>
-          <h2>Why choose Heal Boxx?</h2>
+      <section className={`${section} bg-[#f5faf7]`}>
+        <div className="mb-9 max-w-2xl">
+          <span className={eyebrow}><Star size={16} /> Primary benefits</span>
+          <h2 className={sectionTitle}>Why choose Heal Boxx?</h2>
         </div>
-        <div className="benefit-grid">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {benefits.map(([title, text]) => (
-            <article className="lifted" key={title}>
-              <LockKeyhole size={20} />
-              <h3>{title}</h3>
-              <p>{text}</p>
+            <article className={`${card} p-6`} key={title}>
+              <LockKeyhole className="text-[#f47c68]" size={22} />
+              <h3 className="mt-4 text-2xl font-black text-[#10201d]">{title}</h3>
+              <p className="mt-3 leading-7 text-[#63706d]">{text}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="section founders">
+      <section className={`${section} grid gap-8 border-y border-[#dce8e3] bg-white md:grid-cols-[.85fr_1fr]`}>
         <div>
-          <span className="eyebrow"><Languages size={16} /> Our founders</span>
-          <h2>Visionaries behind accessible wellness.</h2>
-          <p>Heal Boxx is guided by psychology, medical insight and a belief that mental health support should feel simple, respectful and available for everyone.</p>
+          <span className={eyebrow}><Languages size={16} /> Our founders</span>
+          <h2 className={sectionTitle}>Visionaries behind accessible wellness.</h2>
+          <p className={`${muted} mt-4`}>Heal Boxx is guided by psychology, medical insight and a belief that mental health support should feel simple, respectful and available for everyone.</p>
         </div>
-        <div className="founder-list">
-          <strong>Nancy Kurian <span>Psychologist with 15+ years of experience</span></strong>
-          <strong>Luke Kurian <span>Doctor with holistic wellness perspective</span></strong>
-          <strong>Matthew Kurian <span>Mental health advocate and medical student</span></strong>
+        <div className="grid gap-4">
+          {["Nancy Kurian|Psychologist with 15+ years of experience", "Luke Kurian|Doctor with holistic wellness perspective", "Matthew Kurian|Mental health advocate and medical student"].map((item) => {
+            const [name, detail] = item.split("|");
+            return <strong className="grid rounded-lg bg-[#d8f3e8] p-5 text-[#10201d]" key={name}>{name}<span className="mt-1 text-[#63706d]">{detail}</span></strong>;
+          })}
         </div>
       </section>
 
       <GallerySection preview />
       <ExpertsSection preview />
 
-      <section className="section testimonials">
-        <div className="section-head compact">
-          <span className="eyebrow">Client voices</span>
-          <h2>People feel seen, heard and supported.</h2>
+      <section className={section}>
+        <div className="mb-9 max-w-2xl">
+          <span className={eyebrow}>Client voices</span>
+          <h2 className={sectionTitle}>People feel seen, heard and supported.</h2>
         </div>
-        <div className="testimonial-grid">
-          <blockquote>"The session helped me understand my stress without feeling judged."<span>Working professional</span></blockquote>
-          <blockquote>"Flexible online counselling made it possible to stay consistent."<span>College student</span></blockquote>
-          <blockquote>"Our EAP session gave the team practical ways to reset."<span>HR manager</span></blockquote>
+        <div className="grid gap-5 md:grid-cols-3">
+          {[
+            ["The session helped me understand my stress without feeling judged.", "Working professional"],
+            ["Flexible online counselling made it possible to stay consistent.", "College student"],
+            ["Our EAP session gave the team practical ways to reset.", "HR manager"]
+          ].map(([quote, who]) => (
+            <blockquote className={`${card} p-6 text-lg leading-8 text-[#10201d]`} key={who}>"{quote}"<span className="mt-5 block text-sm font-black text-[#63706d]">{who}</span></blockquote>
+          ))}
         </div>
       </section>
 

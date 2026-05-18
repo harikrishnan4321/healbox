@@ -15,6 +15,9 @@ const emptyForm = {
   message: ""
 };
 
+const labelClass = "grid gap-2 font-black text-[#334540]";
+const fieldClass = "min-h-12 w-full rounded-lg border border-[#dce8e3] bg-[#fbfdf9] px-4 py-3 text-[#10201d] outline-none transition focus:border-[#0f8d7a] focus:ring-4 focus:ring-[#0f8d7a]/10";
+
 export default function RegistrationForm() {
   const [form, setForm] = useState(emptyForm);
   const [status, setStatus] = useState("");
@@ -45,32 +48,32 @@ export default function RegistrationForm() {
   }
 
   return (
-    <form className="register-form" onSubmit={submit}>
-      <div className="form-banner">
-        <CheckCircle2 />
+    <form className="grid gap-5 rounded-lg border border-[#dce8e3] bg-white/90 p-6 shadow-2xl md:p-9" onSubmit={submit}>
+      <div className="flex items-center gap-4 rounded-lg bg-[#10201d] p-4 text-white">
+        <CheckCircle2 className="text-[#ffd35e]" />
         <div>
-          <span>Professional onboarding</span>
-          <h2>Register with HealBoxx</h2>
+          <span className="text-xs font-black uppercase tracking-wide text-[#9debdc]">Professional onboarding</span>
+          <h2 className="mt-1 text-2xl font-black">Register with HealBoxx</h2>
         </div>
       </div>
 
-      <div className="form-grid">
-        <label>Full Name<input name="name" value={form.name} onChange={update} required /></label>
-        <label>Email<input type="email" name="email" value={form.email} onChange={update} required /></label>
-        <label>Phone<input name="phone" value={form.phone} onChange={update} required /></label>
-        <label>Profession<input name="profession" value={form.profession} onChange={update} placeholder="Psychologist, coach, doctor..." required /></label>
-        <label>Specialization<input name="specialization" value={form.specialization} onChange={update} /></label>
-        <label>Experience<input name="experience" value={form.experience} onChange={update} placeholder="8+ years" /></label>
-        <label>City<input name="city" value={form.city} onChange={update} /></label>
-        <label>Qualification<input name="qualification" value={form.qualification} onChange={update} /></label>
-        <label className="wide">Message<textarea name="message" value={form.message} onChange={update} placeholder="Tell us about your practice, availability or services." /></label>
+      <div className="grid gap-4 md:grid-cols-2">
+        <label className={labelClass}>Full Name<input className={fieldClass} name="name" value={form.name} onChange={update} required /></label>
+        <label className={labelClass}>Email<input className={fieldClass} type="email" name="email" value={form.email} onChange={update} required /></label>
+        <label className={labelClass}>Phone<input className={fieldClass} name="phone" value={form.phone} onChange={update} required /></label>
+        <label className={labelClass}>Profession<input className={fieldClass} name="profession" value={form.profession} onChange={update} placeholder="Psychologist, coach, doctor..." required /></label>
+        <label className={labelClass}>Specialization<input className={fieldClass} name="specialization" value={form.specialization} onChange={update} /></label>
+        <label className={labelClass}>Experience<input className={fieldClass} name="experience" value={form.experience} onChange={update} placeholder="8+ years" /></label>
+        <label className={labelClass}>City<input className={fieldClass} name="city" value={form.city} onChange={update} /></label>
+        <label className={labelClass}>Qualification<input className={fieldClass} name="qualification" value={form.qualification} onChange={update} /></label>
+        <label className={`${labelClass} md:col-span-2`}>Message<textarea className={`${fieldClass} min-h-32 resize-y`} name="message" value={form.message} onChange={update} placeholder="Tell us about your practice, availability or services." /></label>
       </div>
 
-      <button type="submit" disabled={saving}>
-        {saving ? <Loader2 className="spin" /> : <Send />}
+      <button className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-gradient-to-r from-[#0f8d7a] to-[#13aa91] px-5 font-black text-white shadow-lg disabled:opacity-60" type="submit" disabled={saving}>
+        {saving ? <Loader2 className="animate-spin" /> : <Send />}
         {saving ? "Submitting..." : "Submit Registration"}
       </button>
-      {status && <p className="form-status">{status}</p>}
+      {status && <p className="font-black text-[#096454]">{status}</p>}
     </form>
   );
 }

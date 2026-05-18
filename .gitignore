@@ -4,3 +4,4 @@ out
 .env*
 *.log
 healbox-out.zip
+out.zip
