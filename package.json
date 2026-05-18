@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "clean": "node scripts/clean-static-export.mjs",
+    "build": "npm run clean && next build",
     "start": "npx serve@latest out",
     "start:next": "next start",
     "lint": "next lint"
