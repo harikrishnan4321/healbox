@@ -14,6 +14,8 @@ const navItems = [
   { href: "/blog", label: "Blog" }
 ];
 
+const publicPath = "/out";
+
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -26,7 +28,7 @@ export function SiteHeader() {
     <>
       <header className="nav">
         <Link className="brand logo-brand" href="/" onClick={closeMenu}>
-          <img src="/logo.png" alt="HealBoxx" />
+          <img src={`${publicPath}/logo.png`} alt="HealBoxx" />
         </Link>
         <nav className={`nav-links ${open ? "open" : ""}`}>
           {navItems.slice(0, 2).map((item) => (
@@ -68,7 +70,7 @@ export function SiteFooter() {
   return (
     <footer className="footer">
       <div>
-        <Link className="brand logo-brand footer-logo" href="/"><img src="/logo.png" alt="HealBoxx" /></Link>
+        <Link className="brand logo-brand footer-logo" href="/"><img src={`${publicPath}/logo.png`} alt="HealBoxx" /></Link>
         <p>Your one-stop solution for mental health, therapy, coaching and wellness.</p>
       </div>
       <div>
