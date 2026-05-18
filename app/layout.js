@@ -4,9 +4,9 @@ export const metadata = {
   title: "Heal Boxx | Mental Health and Wellness",
   description: "A modern Heal Boxx wellness website with dynamic gallery and experts sections.",
   icons: {
-    icon: "/out/logo-icon.png",
-    shortcut: "/out/logo-icon.png",
-    apple: "/out/logo-icon.png"
+    icon: "/logo-icon.png",
+    shortcut: "/logo-icon.png",
+    apple: "/logo-icon.png"
   }
 };
 

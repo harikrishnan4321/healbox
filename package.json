@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "clean": "node scripts/clean-static-export.mjs",
-    "build": "npm run clean && next build",
+    "build": "npm run clean && next build && npm run export:portable",
+    "export:portable": "node scripts/make-static-export-portable.mjs",
     "start": "npx serve@latest out",
     "start:next": "next start",
     "lint": "next lint"
