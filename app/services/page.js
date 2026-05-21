@@ -15,8 +15,8 @@ export default function ServicesPage() {
         text="Explore counselling and coaching options designed for everyday emotional wellness."
         image="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1200&q=85"
       />
-      <section className="px-5 py-14 sm:px-6 md:px-14 md:py-20">
-        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+      <section className="w-full max-w-full overflow-hidden px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-20 lg:px-14">
+        <div className="grid min-w-0 gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {services.map((service) => (
             <article className={card} key={service.title}>
               <img className="aspect-video w-full object-cover" src={service.image} alt={service.title} />

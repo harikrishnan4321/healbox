@@ -1,9 +1,9 @@
 1:"$Sreact.fragment"
-2:I[12619,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0qt.to89-g0q8.js"],"SiteHeader"]
-3:I[12619,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0qt.to89-g0q8.js"],"PageHero"]
-4:I[15619,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0qt.to89-g0q8.js"],"GallerySection"]
-5:I[12619,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0qt.to89-g0q8.js"],"SiteFooter"]
+2:I[12619,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/16tt2wanh3oh4.js"],"SiteHeader"]
+3:I[12619,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/16tt2wanh3oh4.js"],"PageHero"]
+4:I[15619,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/16tt2wanh3oh4.js"],"GallerySection"]
+5:I[12619,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/16tt2wanh3oh4.js"],"SiteFooter"]
 6:I[97367,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
 7:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"children":[["$","$L2",null,{}],["$","$L3",null,{"eyebrow":"Gallery","title":"Visual moments from Heal Boxx wellness care.","text":"This page is powered by the backend gallery API, including wellness images and GIFs.","image":"https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=85"}],["$","$L4",null,{}],["$","$L5",null,{}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/0qt.to89-g0q8.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"UshKm3XxlppNbAWHybgT2"}
+0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"children":[["$","$L2",null,{}],["$","$L3",null,{"eyebrow":"Gallery","title":"Visual moments from Heal Boxx wellness care.","text":"This page is powered by the backend gallery API, including wellness images and GIFs.","image":"https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=85"}],["$","$L4",null,{}],["$","$L5",null,{}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/16tt2wanh3oh4.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"OwuSP6eGTlFgO5MmJrTl2"}
 8:null

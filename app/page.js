@@ -4,12 +4,12 @@ import { ExpertsSection, GallerySection } from "@/components/DynamicSections";
 import { ProfessionalStrip, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { benefits, services } from "@/data/siteContent";
 
-const section = "px-5 py-14 sm:px-6 md:px-14 md:py-20";
+const section = "w-full max-w-full overflow-hidden px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-18 lg:px-14 lg:py-20";
 const eyebrow = "inline-flex items-center gap-2 text-xs font-black uppercase tracking-wide text-[#096454]";
 const sectionTitle = "mt-3 text-balance text-3xl font-black leading-[1.05] text-[#10201d] sm:text-4xl md:text-6xl";
 const muted = "text-base leading-7 text-[#63706d] sm:text-lg sm:leading-8";
-const primary = "inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#0f8d7a] to-[#13aa91] px-5 font-black text-white shadow-lg";
-const secondary = "inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-white/30 bg-white/15 px-5 font-black text-white backdrop-blur";
+const primary = "inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#0f8d7a] to-[#13aa91] px-5 font-black text-white shadow-lg sm:w-auto";
+const secondary = "inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg border border-white/30 bg-white/15 px-5 font-black text-white backdrop-blur sm:w-auto";
 const card = "overflow-hidden rounded-lg border border-[#dce8e3] bg-white shadow-[0_16px_40px_rgba(25,53,48,.08)] transition hover:-translate-y-1 hover:shadow-2xl";
 
 const socialLinks = [
@@ -56,14 +56,14 @@ export default function Home() {
     <main>
       <SiteHeader />
 
-      <section className="relative grid min-h-[620px] items-center gap-8 overflow-hidden bg-[#07110f] px-5 py-10 text-white sm:px-6 md:min-h-[calc(100vh-74px)] md:grid-cols-[1.05fr_.95fr] md:px-14 lg:gap-12">
+      <section className="relative grid w-full max-w-full grid-cols-1 items-center gap-7 overflow-hidden bg-[#07110f] px-4 py-8 text-white sm:px-6 md:min-h-[calc(100vh-74px)] md:grid-cols-[minmax(0,1.05fr)_minmax(0,.95fr)] md:px-8 lg:gap-12 lg:px-14">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_24%,rgba(53,215,238,.22),transparent_34%),linear-gradient(135deg,#07110f_0%,#0e332d_52%,#07110f_100%)]" />
 
-        <div className="relative z-10 overflow-hidden rounded-[28px] border border-white/20 bg-white/10 p-2 shadow-[0_28px_90px_rgba(0,0,0,.38)] backdrop-blur md:order-1">
-          <div className="absolute left-4 top-1/2 z-30 hidden -translate-y-1/2 gap-3 sm:grid">
+        <div className="relative z-10 w-full max-w-full overflow-hidden rounded-2xl border border-white/20 bg-white/10 p-2 shadow-[0_28px_90px_rgba(0,0,0,.38)] backdrop-blur sm:rounded-[28px] md:order-1">
+          <div className="absolute left-3 top-1/2 z-30 hidden -translate-y-1/2 gap-2 lg:grid xl:left-4 xl:gap-3">
             {socialLinks.map((item) => (
               <a
-                className="grid h-11 w-11 place-items-center rounded-full border border-white/25 bg-[#061815]/75 text-white shadow-[0_10px_28px_rgba(0,0,0,.28)] backdrop-blur transition hover:-translate-y-1 hover:bg-[#ffd35e] hover:text-[#10201d]"
+                className="grid h-10 w-10 place-items-center rounded-full border border-white/25 bg-[#061815]/75 text-white shadow-[0_10px_28px_rgba(0,0,0,.28)] backdrop-blur transition hover:-translate-y-1 hover:bg-[#ffd35e] hover:text-[#10201d] xl:h-11 xl:w-11"
                 href={item.href}
                 key={item.label}
                 target="_blank"
@@ -75,16 +75,16 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="relative min-h-[360px] overflow-hidden rounded-[22px] sm:min-h-[440px] md:min-h-[560px]">
+          <div className="relative aspect-[4/5] w-full max-w-full overflow-hidden rounded-2xl sm:aspect-[16/12] md:min-h-[500px] md:rounded-[22px] lg:min-h-[560px]">
             <video className="absolute inset-0 h-full w-full scale-[1.02] object-cover brightness-[1.18] contrast-[1.05] saturate-[1.12]" autoPlay muted loop playsInline>
               <source src="https://healboxx.com/assets1/video/introVideo.mp4" type="video/mp4" />
               <source src="https://healboxx.com/assets1/video/introVideo.webm" type="video/webm" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-t from-[#04110f]/40 via-transparent to-white/5" />
-            <div className="absolute right-5 top-5 z-20 flex gap-2 sm:hidden">
+            <div className="absolute right-3 top-3 z-20 flex max-w-[calc(100%-1.5rem)] flex-wrap justify-end gap-2 lg:hidden">
               {socialLinks.map((item) => (
                 <a
-                  className="grid h-10 w-10 place-items-center rounded-full border border-white/25 bg-[#061815]/75 text-white shadow-lg backdrop-blur"
+                  className="grid h-9 w-9 place-items-center rounded-full border border-white/25 bg-[#061815]/80 text-white shadow-lg backdrop-blur sm:h-10 sm:w-10"
                   href={item.href}
                   key={item.label}
                   target="_blank"
@@ -95,16 +95,16 @@ export default function Home() {
                 </a>
               ))}
             </div>
-            <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/25 bg-[#07110f]/45 p-4 text-white shadow-2xl backdrop-blur-md sm:bottom-5 sm:left-5 sm:right-5 sm:p-5">
-              <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[.18em] text-[#9debdc]"><Play size={14} /> HealBoxx care</span>
-              <p className="mt-2 font-serif text-2xl font-black leading-tight sm:text-3xl">Online support that feels close, calm and human.</p>
+            <div className="absolute bottom-3 left-3 right-3 rounded-2xl border border-white/25 bg-[#07110f]/55 p-3 text-white shadow-2xl backdrop-blur-md sm:bottom-5 sm:left-5 sm:right-5 sm:p-5">
+              <span className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[.14em] text-[#9debdc] sm:text-xs sm:tracking-[.18em]"><Play size={14} /> HealBoxx care</span>
+              <p className="mt-2 text-balance font-serif text-xl font-black leading-tight sm:text-2xl lg:text-3xl">Online support that feels close, calm and human.</p>
             </div>
           </div>
         </div>
 
-        <div className="relative z-10 self-center md:order-2">
+        <div className="relative z-10 min-w-0 self-center md:order-2">
           <span className="inline-flex items-center gap-2 rounded-full border border-[#9debdc]/35 bg-white/10 px-4 py-2 text-xs font-black uppercase tracking-[.18em] text-[#9debdc] backdrop-blur"><ShieldCheck size={16} /> Mental wellness, anywhere</span>
-          <h1 className="mt-5 max-w-3xl text-balance font-serif text-4xl font-black leading-[1.02] tracking-normal text-white sm:text-5xl md:text-6xl xl:text-7xl">Heal on a call from anywhere, at any time.</h1>
+          <h1 className="mt-5 max-w-3xl text-balance font-serif text-4xl font-black leading-[1.02] tracking-normal text-white sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl">Heal on a call from anywhere, at any time.</h1>
           <p className="mt-6 max-w-2xl text-base leading-7 text-white/78 sm:text-lg sm:leading-8">Tech-enabled therapy, coaching and wellness support for emotional, psychological, social and lifestyle needs.</p>
           <div className="mt-8 grid gap-3 sm:flex sm:flex-wrap sm:gap-4">
             <Link className={primary} href="/experts">Meet experts <ArrowRight size={18} /></Link>
@@ -112,7 +112,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative z-10 grid gap-3 self-end sm:grid-cols-3 md:order-3 md:col-span-2">
+        <div className="relative z-10 grid min-w-0 gap-3 self-end sm:grid-cols-3 md:order-3 md:col-span-2">
           {[
             ["15+", "Years of Experience"],
             ["100+", "Therapists"],
@@ -125,7 +125,7 @@ export default function Home() {
 
       <ProfessionalStrip />
 
-      <section className={`${section} grid gap-8 border-y border-[#dce8e3] bg-white md:grid-cols-[.85fr_1fr] md:items-start`}>
+      <section className={`${section} grid min-w-0 gap-8 border-y border-[#dce8e3] bg-white md:grid-cols-[minmax(0,.85fr)_minmax(0,1fr)] md:items-start`}>
         <div>
           <span className={eyebrow}><Phone size={16} /> About HealBoxx</span>
           <h2 className={sectionTitle}>Care that is warm, practical and easy to reach.</h2>
@@ -139,7 +139,7 @@ export default function Home() {
           <h2 className={sectionTitle}>Counselling and coaching for real moments.</h2>
           <p className={`${muted} mt-4`}>Choose focused support for personal, family, student and workplace wellbeing.</p>
         </div>
-        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="grid min-w-0 gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {services.slice(0, 3).map((service) => (
             <article className={card} key={service.title}>
               <img className="aspect-video w-full object-cover" src={service.image} alt={service.title} />
@@ -162,7 +162,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={`${section} grid items-center gap-10 bg-white md:grid-cols-[1fr_.72fr]`}>
+      <section className={`${section} grid min-w-0 items-center gap-10 bg-white md:grid-cols-[minmax(0,1fr)_minmax(0,.72fr)]`}>
         <div>
           <span className={eyebrow}><Download size={16} /> Download App</span>
           <h2 className={sectionTitle}>Carry your therapist, resources and calm resets with you.</h2>
@@ -191,7 +191,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={`${section} grid gap-8 border-y border-[#dce8e3] bg-white md:grid-cols-[.85fr_1fr]`}>
+      <section className={`${section} grid min-w-0 gap-8 border-y border-[#dce8e3] bg-white md:grid-cols-[minmax(0,.85fr)_minmax(0,1fr)]`}>
         <div>
           <span className={eyebrow}><Languages size={16} /> Our founders</span>
           <h2 className={sectionTitle}>Visionaries behind accessible wellness.</h2>

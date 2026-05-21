@@ -13,7 +13,7 @@ export default function HelloPage() {
         text="Reach out for individual counselling, family support, EAP sessions or wellness coaching."
         image="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85"
       />
-      <section className="grid gap-5 px-5 py-14 sm:px-6 md:grid-cols-3 md:px-14 md:py-20">
+      <section className="grid w-full max-w-full gap-5 overflow-hidden px-4 py-12 sm:px-6 sm:py-14 md:grid-cols-3 md:px-10 md:py-20 lg:px-14">
         <article className={card}>
           <Phone className="text-[#0f8d7a]" />
           <h3 className="mt-5 text-xl font-black text-[#10201d] sm:text-2xl">Call</h3>

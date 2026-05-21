@@ -7,16 +7,21 @@
 
 * {
   box-sizing: border-box;
+  min-width: 0;
 }
 
 html {
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 body {
   margin: 0;
   min-width: 320px;
-  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
   background:
     linear-gradient(180deg, rgba(216, 243, 232, 0.42), transparent 420px),
     var(--background);
@@ -32,5 +37,12 @@ a {
 img,
 video {
   display: block;
+  max-width: 100%;
+}
+
+main,
+section,
+header,
+footer {
   max-width: 100%;
 }

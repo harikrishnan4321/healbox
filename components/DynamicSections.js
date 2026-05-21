@@ -6,7 +6,7 @@ import { Award, ChevronLeft, ChevronRight, Filter, ImageIcon, Loader2, Search, S
 import content from "@/data/content.json";
 
 const pageSize = 6;
-const section = "px-5 py-14 sm:px-6 md:px-14 md:py-20";
+const section = "w-full max-w-full overflow-hidden px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-18 lg:px-14 lg:py-20";
 const eyebrow = "inline-flex items-center gap-2 text-xs font-black uppercase tracking-wide text-[#096454]";
 const sectionHead = "mb-9 max-w-3xl";
 const sectionTitle = "mt-3 text-balance text-3xl font-black leading-[1.05] text-[#10201d] sm:text-4xl md:text-6xl";
@@ -45,12 +45,12 @@ export function GallerySection({ preview = false }) {
       </div>
 
       {!preview && (
-        <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div className="mb-8 flex min-w-0 flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <label className="flex min-h-12 flex-1 items-center gap-3 rounded-lg border border-white/25 bg-white/10 px-4 text-white">
             <Search size={16} />
             <input className="w-full bg-transparent outline-none placeholder:text-white/60" value={query} onChange={(event) => { setQuery(event.target.value); setPage(1); }} placeholder="Search gallery" />
           </label>
-          <div className="grid grid-cols-3 gap-2 sm:flex sm:flex-wrap">
+          <div className="grid min-w-0 grid-cols-3 gap-2 sm:flex sm:flex-wrap">
             {["all", "image", "gif"].map((option) => (
               <button className={`${type === option ? "bg-[#ffd35e] text-[#10201d]" : "bg-white text-[#10201d]"} inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-3 text-sm font-black sm:px-4 sm:text-base`} key={option} type="button" onClick={() => { setType(option); setPage(1); }}>
                 <Filter size={15} /> {option === "all" ? "All" : option === "image" ? "Photos" : "GIFs"}
@@ -63,7 +63,7 @@ export function GallerySection({ preview = false }) {
       {loading ? (
         <div className="flex min-h-44 items-center justify-center gap-3 rounded-lg bg-white text-[#10201d]"><Loader2 className="animate-spin" /> Loading gallery</div>
       ) : (
-        <div className="grid auto-rows-[minmax(280px,auto)] grid-cols-1 gap-4 sm:auto-rows-[300px] md:grid-cols-2 xl:grid-cols-[1.15fr_.85fr_1fr]">
+        <div className="grid min-w-0 auto-rows-[minmax(280px,auto)] grid-cols-1 gap-4 sm:auto-rows-[300px] md:grid-cols-2 xl:grid-cols-[minmax(0,1.15fr)_minmax(0,.85fr)_minmax(0,1fr)]">
           {visibleItems.map((item, index) => (
             <article className={`group relative min-h-[250px] overflow-hidden rounded-lg border border-white/20 bg-[#0a211d] ${index % 4 === 0 || index % 4 === 3 ? "xl:row-span-2" : ""}`} key={item.id}>
               {item.type === "gif" && <span className="absolute right-4 top-4 z-10 rounded-full bg-[#ffd35e] px-3 py-1 text-xs font-black text-[#10201d]">Animated</span>}
@@ -108,7 +108,7 @@ export function ExpertsSection({ preview = false }) {
       </div>
 
       {!preview && (
-        <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div className="mb-8 flex min-w-0 flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <label className={inputShell}><Search size={16} /><input className="w-full bg-transparent outline-none" value={query} onChange={(event) => { setQuery(event.target.value); setPage(1); }} placeholder="Search experts" /></label>
           <select className="min-h-12 w-full rounded-lg border border-[#dce8e3] bg-white px-4 text-[#10201d] outline-none md:w-72" value={role} onChange={(event) => { setRole(event.target.value); setPage(1); }}>
             {roles.map((option) => <option value={option} key={option}>{option === "all" ? "All roles" : option}</option>)}
@@ -119,7 +119,7 @@ export function ExpertsSection({ preview = false }) {
       {loading ? (
         <div className="flex min-h-44 items-center justify-center gap-3 rounded-lg bg-white text-[#10201d]"><Loader2 className="animate-spin" /> Loading experts</div>
       ) : (
-        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="grid min-w-0 gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {visibleExperts.map((expert) => (
             <article className={card} key={expert.id}>
               <img className="aspect-[4/3] w-full object-cover object-top" src={expert.image} alt={expert.name} />

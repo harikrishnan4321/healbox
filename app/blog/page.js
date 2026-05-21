@@ -20,7 +20,7 @@ export default function BlogPage() {
         text="Insights from the HealBoxx world on therapy, work, relationships and self-care."
         image="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=85"
       />
-      <section className="grid gap-5 px-5 py-14 sm:px-6 md:grid-cols-3 md:px-14 md:py-20">
+      <section className="grid w-full max-w-full gap-5 overflow-hidden px-4 py-12 sm:px-6 sm:py-14 md:grid-cols-3 md:px-10 md:py-20 lg:px-14">
         {posts.map(([title, text]) => (
           <article className={card} key={title}>
             <BookOpenText className="text-[#0f8d7a]" />

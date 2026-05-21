@@ -64,7 +64,7 @@ export function SiteHeader() {
       />
 
       {/* HEADER */}
-      <header className="sticky top-0 z-[90] flex min-h-[70px] items-center justify-between gap-3 border-b border-white/15 bg-[#08231f]/95 px-4 py-3 text-white shadow-[0_18px_70px_rgba(4,16,14,.28)] backdrop-blur-2xl transition sm:px-5 md:px-8 lg:grid lg:min-h-[76px] lg:grid-cols-[170px_1fr_auto] lg:px-10 xl:grid-cols-[190px_1fr_auto] xl:px-14">
+      <header className="sticky top-0 z-[90] flex min-h-[70px] w-full max-w-full items-center justify-between gap-3 border-b border-white/15 bg-[#08231f]/95 px-4 py-3 text-white shadow-[0_18px_70px_rgba(4,16,14,.28)] backdrop-blur-2xl transition sm:px-5 md:px-8 lg:grid lg:min-h-[76px] lg:grid-cols-[150px_minmax(0,1fr)_auto] lg:px-8 xl:grid-cols-[190px_minmax(0,1fr)_auto] xl:px-14">
         
         {/* LOGO */}
         <Link
@@ -73,14 +73,14 @@ export function SiteHeader() {
           onClick={closeMenu}
         >
           <img
-            className="h-11 w-[136px] object-contain sm:h-12 sm:w-[150px]"
+            className="h-10 w-[128px] object-contain sm:h-12 sm:w-[150px]"
             src="/logo.png"
             alt="HealBoxx"
           />
         </Link>
 
         {/* DESKTOP NAV */}
-        <nav className="hidden min-w-0 items-center justify-center gap-1 lg:flex xl:gap-2">
+        <nav className="hidden min-w-0 flex-wrap items-center justify-center gap-1 lg:flex xl:gap-2">
           {navItems.slice(0, 2).map((item) => (
             <Link
               key={item.href}
@@ -175,10 +175,10 @@ export function SiteHeader() {
       {/* MOBILE NAV */}
       <nav
   className="
-    invisible fixed right-3 top-[78px]
+    invisible fixed inset-x-3 top-[78px]
     z-[110]
     max-h-[calc(100vh-92px)]
-    w-[92%]
+    w-auto
     -translate-y-3
     overflow-y-auto
     rounded-[28px]
@@ -192,8 +192,8 @@ export function SiteHeader() {
     peer-checked/site-menu:visible
     peer-checked/site-menu:translate-y-0
     peer-checked/site-menu:opacity-100
-    sm:w-[55%]
-    md:w-[50%]
+    sm:left-auto sm:right-5 sm:w-[min(420px,55vw)]
+    md:w-[min(460px,50vw)]
     lg:hidden
   "
 >
@@ -289,7 +289,7 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <>
-      <footer className="grid gap-8 bg-[#0d1715] px-5 py-12 text-white sm:px-6 md:grid-cols-[1.2fr_.6fr_.6fr] md:px-14 md:py-14">
+      <footer className="grid w-full max-w-full gap-8 overflow-hidden bg-[#0d1715] px-4 py-12 text-white sm:px-6 md:grid-cols-[minmax(0,1.2fr)_minmax(0,.6fr)_minmax(0,.6fr)] md:px-10 md:py-14 lg:px-14">
         <div className="grid content-start gap-4">
           <Link className="inline-flex" href="/">
             <img
@@ -401,13 +401,13 @@ export function SiteFooter() {
 
 export function PageHero({ eyebrow, title, text, image }) {
   return (
-    <section className="relative grid min-h-[430px] items-center gap-8 overflow-hidden bg-[#07110f] px-5 py-14 text-white sm:px-6 md:min-h-[520px] md:grid-cols-[.9fr_.7fr] md:px-14 md:py-16">
+    <section className="relative grid min-h-[400px] w-full max-w-full items-center gap-8 overflow-hidden bg-[#07110f] px-4 py-12 text-white sm:px-6 md:min-h-[500px] md:grid-cols-[minmax(0,.9fr)_minmax(0,.7fr)] md:px-10 md:py-16 lg:px-14">
       <div className="relative z-10">
         <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wide text-[#9debdc]">
           {eyebrow}
         </span>
 
-        <h1 className="mt-4 max-w-4xl text-balance text-4xl font-black leading-[1.02] sm:text-5xl md:text-7xl">
+        <h1 className="mt-4 max-w-4xl text-balance text-4xl font-black leading-[1.02] sm:text-5xl md:text-6xl lg:text-7xl">
           {title}
         </h1>
 
