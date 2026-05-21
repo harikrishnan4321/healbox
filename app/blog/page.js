@@ -8,7 +8,7 @@ const posts = [
   ["Guided breathing for stressful moments", "Short resets that help the body and mind slow down."]
 ];
 
-const card = "rounded-lg border border-[#dce8e3] bg-white p-7 shadow-[0_16px_40px_rgba(25,53,48,.08)] transition hover:-translate-y-1 hover:shadow-2xl";
+const card = "rounded-lg border border-[#dce8e3] bg-white p-5 shadow-[0_16px_40px_rgba(25,53,48,.08)] transition hover:-translate-y-1 hover:shadow-2xl sm:p-7";
 
 export default function BlogPage() {
   return (
@@ -20,11 +20,11 @@ export default function BlogPage() {
         text="Insights from the HealBoxx world on therapy, work, relationships and self-care."
         image="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=85"
       />
-      <section className="grid gap-5 px-5 py-20 md:grid-cols-3 md:px-14">
+      <section className="grid gap-5 px-5 py-14 sm:px-6 md:grid-cols-3 md:px-14 md:py-20">
         {posts.map(([title, text]) => (
           <article className={card} key={title}>
             <BookOpenText className="text-[#0f8d7a]" />
-            <h3 className="mt-5 text-2xl font-black text-[#10201d]">{title}</h3>
+            <h3 className="mt-5 text-xl font-black text-[#10201d] sm:text-2xl">{title}</h3>
             <p className="mt-3 leading-7 text-[#63706d]">{text}</p>
             <Link className="mt-5 inline-flex items-center gap-2 font-black text-[#096454]" href="/hello">Read more <ArrowRight size={16} /></Link>
           </article>

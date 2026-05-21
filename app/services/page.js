@@ -15,13 +15,13 @@ export default function ServicesPage() {
         text="Explore counselling and coaching options designed for everyday emotional wellness."
         image="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1200&q=85"
       />
-      <section className="px-5 py-20 md:px-14">
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      <section className="px-5 py-14 sm:px-6 md:px-14 md:py-20">
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {services.map((service) => (
             <article className={card} key={service.title}>
               <img className="aspect-video w-full object-cover" src={service.image} alt={service.title} />
               <div className="grid gap-3 p-5">
-                <h3 className="text-2xl font-black text-[#10201d]">{service.title}</h3>
+                <h3 className="text-xl font-black text-[#10201d] sm:text-2xl">{service.title}</h3>
                 <p className="leading-7 text-[#63706d]">{service.text}</p>
                 <Link className="inline-flex items-center gap-2 font-black text-[#096454]" href="/contact"><CheckCircle2 size={16} /> Book this service <ArrowRight size={16} /></Link>
               </div>

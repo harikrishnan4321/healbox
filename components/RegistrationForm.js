@@ -48,12 +48,12 @@ export default function RegistrationForm() {
   }
 
   return (
-    <form className="grid gap-5 rounded-lg border border-[#dce8e3] bg-white/90 p-6 shadow-2xl md:p-9" onSubmit={submit}>
-      <div className="flex items-center gap-4 rounded-lg bg-[#10201d] p-4 text-white">
-        <CheckCircle2 className="text-[#ffd35e]" />
+    <form className="grid min-w-0 gap-5 rounded-lg border border-[#dce8e3] bg-white/90 p-5 shadow-2xl sm:p-6 md:p-9" onSubmit={submit}>
+      <div className="flex items-start gap-3 rounded-lg bg-[#10201d] p-4 text-white sm:items-center sm:gap-4">
+        <CheckCircle2 className="shrink-0 text-[#ffd35e]" />
         <div>
           <span className="text-xs font-black uppercase tracking-wide text-[#9debdc]">Professional onboarding</span>
-          <h2 className="mt-1 text-2xl font-black">Register with HealBoxx</h2>
+          <h2 className="mt-1 text-xl font-black sm:text-2xl">Register with HealBoxx</h2>
         </div>
       </div>
 
@@ -69,7 +69,7 @@ export default function RegistrationForm() {
         <label className={`${labelClass} md:col-span-2`}>Message<textarea className={`${fieldClass} min-h-32 resize-y`} name="message" value={form.message} onChange={update} placeholder="Tell us about your practice, availability or services." /></label>
       </div>
 
-      <button className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-gradient-to-r from-[#0f8d7a] to-[#13aa91] px-5 font-black text-white shadow-lg disabled:opacity-60" type="submit" disabled={saving}>
+      <button className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-gradient-to-r from-[#0f8d7a] to-[#13aa91] px-5 text-sm font-black text-white shadow-lg disabled:opacity-60 sm:text-base" type="submit" disabled={saving}>
         {saving ? <Loader2 className="animate-spin" /> : <Send />}
         {saving ? "Submitting..." : "Submit Registration"}
       </button>

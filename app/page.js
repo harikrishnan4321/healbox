@@ -4,10 +4,10 @@ import { ExpertsSection, GallerySection } from "@/components/DynamicSections";
 import { ProfessionalStrip, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { benefits, services } from "@/data/siteContent";
 
-const section = "px-5 py-20 md:px-14";
+const section = "px-5 py-14 sm:px-6 md:px-14 md:py-20";
 const eyebrow = "inline-flex items-center gap-2 text-xs font-black uppercase tracking-wide text-[#096454]";
-const sectionTitle = "mt-3 text-balance text-4xl font-black leading-none text-[#10201d] md:text-6xl";
-const muted = "text-lg leading-8 text-[#63706d]";
+const sectionTitle = "mt-3 text-balance text-3xl font-black leading-[1.05] text-[#10201d] sm:text-4xl md:text-6xl";
+const muted = "text-base leading-7 text-[#63706d] sm:text-lg sm:leading-8";
 const primary = "inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#0f8d7a] to-[#13aa91] px-5 font-black text-white shadow-lg";
 const secondary = "inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-white/30 bg-white/15 px-5 font-black text-white backdrop-blur";
 const card = "overflow-hidden rounded-lg border border-[#dce8e3] bg-white shadow-[0_16px_40px_rgba(25,53,48,.08)] transition hover:-translate-y-1 hover:shadow-2xl";
@@ -17,7 +17,7 @@ export default function Home() {
     <main>
       <SiteHeader />
 
-      <section className="relative grid min-h-[680px] items-end overflow-hidden bg-[#07110f] px-5 py-12 text-white md:min-h-[calc(100vh-74px)] md:grid-cols-[.9fr_.58fr] md:px-14">
+      <section className="relative grid min-h-[620px] items-end gap-8 overflow-hidden bg-[#07110f] px-5 py-12 text-white sm:px-6 md:min-h-[calc(100vh-74px)] md:grid-cols-[.9fr_.58fr] md:px-14">
         <video className="absolute inset-0 h-full w-full scale-105 object-cover opacity-80" autoPlay muted loop playsInline>
           <source src="https://healboxx.com/assets1/video/introVideo.mp4" type="video/mp4" />
           <source src="https://healboxx.com/assets1/video/introVideo.webm" type="video/webm" />
@@ -25,27 +25,27 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#050f0d]/90 via-[#050f0d]/55 to-[#050f0d]/80" />
         <div className="relative z-10 self-center">
           <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wide text-[#9debdc]"><ShieldCheck size={16} /> Mental wellness, anywhere</span>
-          <h1 className="mt-5 max-w-3xl text-balance text-6xl font-black leading-none md:text-8xl">Heal on a call from anywhere, at any time.</h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70">Tech-enabled therapy, coaching and wellness support for emotional, psychological, social and lifestyle needs.</p>
-          <div className="mt-8 flex flex-wrap gap-4">
+          <h1 className="mt-5 max-w-3xl text-balance text-4xl font-black leading-[1.02] sm:text-5xl md:text-7xl xl:text-8xl">Heal on a call from anywhere, at any time.</h1>
+          <p className="mt-6 max-w-2xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8">Tech-enabled therapy, coaching and wellness support for emotional, psychological, social and lifestyle needs.</p>
+          <div className="mt-8 grid gap-3 sm:flex sm:flex-wrap sm:gap-4">
             <Link className={primary} href="/experts">Meet experts <ArrowRight size={18} /></Link>
             <Link className={secondary} href="/gallery"><Play size={18} /> View gallery</Link>
           </div>
         </div>
-        <div className="relative z-10 grid gap-3 self-end">
+        <div className="relative z-10 grid gap-3 self-end sm:grid-cols-3 md:grid-cols-1">
           {[
             ["15+", "Years of Experience"],
             ["100+", "Therapists"],
             ["500+", "Get help and healed"]
           ].map(([number, label]) => (
-            <strong className="grid rounded-lg border border-white/20 bg-white/15 p-5 text-2xl font-black text-[#ffd35e] backdrop-blur" key={label}>{number}<span className="mt-1 text-sm text-white/75">{label}</span></strong>
+            <strong className="grid rounded-lg border border-white/20 bg-white/15 p-4 text-2xl font-black text-[#ffd35e] backdrop-blur sm:p-5" key={label}>{number}<span className="mt-1 text-sm text-white/75">{label}</span></strong>
           ))}
         </div>
       </section>
 
       <ProfessionalStrip />
 
-      <section className={`${section} grid gap-8 border-y border-[#dce8e3] bg-white md:grid-cols-[.85fr_1fr]`}>
+      <section className={`${section} grid gap-8 border-y border-[#dce8e3] bg-white md:grid-cols-[.85fr_1fr] md:items-start`}>
         <div>
           <span className={eyebrow}><Phone size={16} /> About HealBoxx</span>
           <h2 className={sectionTitle}>Care that is warm, practical and easy to reach.</h2>
@@ -59,12 +59,12 @@ export default function Home() {
           <h2 className={sectionTitle}>Counselling and coaching for real moments.</h2>
           <p className={`${muted} mt-4`}>Choose focused support for personal, family, student and workplace wellbeing.</p>
         </div>
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {services.slice(0, 3).map((service) => (
             <article className={card} key={service.title}>
               <img className="aspect-video w-full object-cover" src={service.image} alt={service.title} />
               <div className="grid gap-3 p-5">
-                <h3 className="text-2xl font-black text-[#10201d]">{service.title}</h3>
+                <h3 className="text-xl font-black text-[#10201d] sm:text-2xl">{service.title}</h3>
                 <p className="leading-7 text-[#63706d]">{service.text}</p>
                 <Link className="inline-flex items-center gap-2 font-black text-[#096454]" href="/contact">Book session <ArrowRight size={16} /></Link>
               </div>
@@ -76,9 +76,9 @@ export default function Home() {
 
       <section className="relative grid min-h-[430px] place-items-center overflow-hidden text-center text-white">
         <img className="absolute inset-0 h-full w-full object-cover brightness-60" src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&w=1400&q=85" alt="Peaceful wellness session" />
-        <div className="relative z-10 grid place-items-center gap-5 p-8">
-          <button className="grid h-20 w-20 place-items-center rounded-full bg-[#f47c68]" aria-label="Play promo"><Play /></button>
-          <h2 className="text-4xl font-black md:text-6xl">How it works? Play and watch.</h2>
+        <div className="relative z-10 grid place-items-center gap-5 p-6 sm:p-8">
+          <button className="grid h-16 w-16 place-items-center rounded-full bg-[#f47c68] sm:h-20 sm:w-20" aria-label="Play promo"><Play /></button>
+          <h2 className="text-3xl font-black leading-tight sm:text-4xl md:text-6xl">How it works? Play and watch.</h2>
         </div>
       </section>
 
@@ -87,9 +87,9 @@ export default function Home() {
           <span className={eyebrow}><Download size={16} /> Download App</span>
           <h2 className={sectionTitle}>Carry your therapist, resources and calm resets with you.</h2>
           <p className={`${muted} mt-4`}>Inspired by HealBoxx's app-first experience, this section brings the missing app download moment into the page with clear Google Play and App Store actions.</p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <a className="rounded-lg bg-[#10201d] px-5 py-3 font-black text-white" href="https://play.google.com/store/apps/details?id=com.healbox" target="_blank">Google Play</a>
-            <a className="rounded-lg bg-[#10201d] px-5 py-3 font-black text-white" href="https://apps.apple.com/us/app/healboxx/id6444076704" target="_blank">App Store</a>
+          <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
+            <a className="rounded-lg bg-[#10201d] px-5 py-3 text-center font-black text-white" href="https://play.google.com/store/apps/details?id=com.healbox" target="_blank">Google Play</a>
+            <a className="rounded-lg bg-[#10201d] px-5 py-3 text-center font-black text-white" href="https://apps.apple.com/us/app/healboxx/id6444076704" target="_blank">App Store</a>
           </div>
         </div>
         <img className="mx-auto max-h-[520px] object-contain" src="https://healboxx.com/assets1/img/mockup.png" alt="HealBoxx app mockup" />
@@ -100,11 +100,11 @@ export default function Home() {
           <span className={eyebrow}><Star size={16} /> Primary benefits</span>
           <h2 className={sectionTitle}>Why choose Heal Boxx?</h2>
         </div>
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {benefits.map(([title, text]) => (
             <article className={`${card} p-6`} key={title}>
               <LockKeyhole className="text-[#f47c68]" size={22} />
-              <h3 className="mt-4 text-2xl font-black text-[#10201d]">{title}</h3>
+              <h3 className="mt-4 text-xl font-black text-[#10201d] sm:text-2xl">{title}</h3>
               <p className="mt-3 leading-7 text-[#63706d]">{text}</p>
             </article>
           ))}
@@ -133,7 +133,7 @@ export default function Home() {
           <span className={eyebrow}>Client voices</span>
           <h2 className={sectionTitle}>People feel seen, heard and supported.</h2>
         </div>
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {[
             ["The session helped me understand my stress without feeling judged.", "Working professional"],
             ["Flexible online counselling made it possible to stay consistent.", "College student"],
