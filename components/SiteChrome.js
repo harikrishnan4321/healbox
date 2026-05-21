@@ -6,7 +6,6 @@ import {
   BriefcaseBusiness,
   ChevronDown,
   FileBadge2,
-  MessageCircle,
   Menu,
   X,
 } from "lucide-react";
@@ -33,6 +32,17 @@ const mobileActiveLink =
 
 const ctaLink =
   "inline-flex min-h-12 items-center gap-2 rounded-lg border border-white/25 bg-white/15 px-4 text-xs font-black text-white shadow-[inset_0_1px_rgba(255,255,255,.18)] transition hover:bg-white/25";
+
+function WhatsAppIcon({ className = "h-6 w-6" }) {
+  return (
+    <svg viewBox="0 0 32 32" className={className} aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M16 3.2A12.7 12.7 0 0 0 5.1 22.4L3.4 28.8l6.6-1.7A12.7 12.7 0 1 0 16 3.2Zm0 23.3c-2 0-3.8-.5-5.5-1.5l-.4-.2-3.9 1 1-3.8-.3-.4a10.5 10.5 0 1 1 9.1 4.9Zm5.8-7.8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.6-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6 0-.2-.7-1.8-1-2.4-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 3 0 1.7 1.2 3.4 1.4 3.6.2.2 2.4 3.7 5.8 5.1.8.3 1.4.5 2 .7.8.2 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4Z"
+      />
+    </svg>
+  );
+}
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -371,19 +381,19 @@ export function SiteFooter() {
             target="_blank"
             rel="noreferrer"
           >
-            <MessageCircle size={18} /> WhatsApp Us
+            <WhatsAppIcon className="h-5 w-5" /> WhatsApp Us
           </a>
         </div>
       </footer>
 
       <a
-        className="fixed bottom-5 right-5 z-[130] inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25d366] text-[#07110f] shadow-[0_16px_40px_rgba(37,211,102,.38)] ring-4 ring-white/80 transition hover:-translate-y-1 sm:bottom-6 sm:right-6 sm:h-16 sm:w-16"
+        className="fixed bottom-5 right-5 z-[130] inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25d366] text-white shadow-[0_16px_40px_rgba(37,211,102,.42)] ring-4 ring-white transition hover:-translate-y-1 hover:bg-[#1ebe5d] sm:bottom-6 sm:right-6 sm:h-16 sm:w-16"
         href="https://wa.me/917200045559"
         target="_blank"
         rel="noreferrer"
         aria-label="Chat with HealBoxx on WhatsApp"
       >
-        <MessageCircle className="h-7 w-7 sm:h-8 sm:w-8" />
+        <WhatsAppIcon className="h-9 w-9 sm:h-10 sm:w-10" />
       </a>
     </>
   );

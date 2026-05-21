@@ -12,6 +12,45 @@ const primary = "inline-flex min-h-12 items-center justify-center gap-2 rounded-
 const secondary = "inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-white/30 bg-white/15 px-5 font-black text-white backdrop-blur";
 const card = "overflow-hidden rounded-lg border border-[#dce8e3] bg-white shadow-[0_16px_40px_rgba(25,53,48,.08)] transition hover:-translate-y-1 hover:shadow-2xl";
 
+const socialLinks = [
+  {
+    href: "https://twitter.com/healboxx",
+    label: "X",
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+        <path fill="currentColor" d="M14.7 10.4 22.1 2h-1.8l-6.4 7.3L8.8 2H3l7.8 11.2L3 22h1.8l6.8-7.7 5.5 7.7H23l-8.3-11.6Zm-2.4 2.7-.8-1.1L5.3 3.3H8l5 7 .8 1.1 6.5 9.2h-2.7l-5.3-7.5Z" />
+      </svg>
+    )
+  },
+  {
+    href: "https://www.facebook.com/healboxx",
+    label: "Facebook",
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+        <path fill="currentColor" d="M14.2 8.2V6.7c0-.7.5-.9 1-.9h2.6V2.1L14.3 2c-3.5 0-4.8 2.1-4.8 4.4v1.8H6.7V12h2.8v10h4.1V12H17l.6-3.8h-3.4Z" />
+      </svg>
+    )
+  },
+  {
+    href: "https://www.instagram.com/healboxx/",
+    label: "Instagram",
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+        <path fill="currentColor" d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8Zm8.9 2.8a1 1 0 1 1 0 2 1 1 0 0 1 0-2ZM12 7.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8Zm0 2a2.9 2.9 0 1 0 0 5.8 2.9 2.9 0 0 0 0-5.8Z" />
+      </svg>
+    )
+  },
+  {
+    href: "https://www.youtube.com/@healboxx",
+    label: "YouTube",
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+        <path fill="currentColor" d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.8 2.8 0 0 0-2 2A29.2 29.2 0 0 0 2 12a29.2 29.2 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.8 2.8 0 0 0 2-2A29.2 29.2 0 0 0 22 12a29.2 29.2 0 0 0-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z" />
+      </svg>
+    )
+  }
+];
+
 export default function Home() {
   return (
     <main>
@@ -21,12 +60,41 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_24%,rgba(53,215,238,.22),transparent_34%),linear-gradient(135deg,#07110f_0%,#0e332d_52%,#07110f_100%)]" />
 
         <div className="relative z-10 overflow-hidden rounded-[28px] border border-white/20 bg-white/10 p-2 shadow-[0_28px_90px_rgba(0,0,0,.38)] backdrop-blur md:order-1">
+          <div className="absolute left-4 top-1/2 z-30 hidden -translate-y-1/2 gap-3 sm:grid">
+            {socialLinks.map((item) => (
+              <a
+                className="grid h-11 w-11 place-items-center rounded-full border border-white/25 bg-[#061815]/75 text-white shadow-[0_10px_28px_rgba(0,0,0,.28)] backdrop-blur transition hover:-translate-y-1 hover:bg-[#ffd35e] hover:text-[#10201d]"
+                href={item.href}
+                key={item.label}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`HealBoxx ${item.label}`}
+              >
+                {item.icon}
+              </a>
+            ))}
+          </div>
+
           <div className="relative min-h-[360px] overflow-hidden rounded-[22px] sm:min-h-[440px] md:min-h-[560px]">
             <video className="absolute inset-0 h-full w-full scale-[1.02] object-cover brightness-[1.18] contrast-[1.05] saturate-[1.12]" autoPlay muted loop playsInline>
               <source src="https://healboxx.com/assets1/video/introVideo.mp4" type="video/mp4" />
               <source src="https://healboxx.com/assets1/video/introVideo.webm" type="video/webm" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-t from-[#04110f]/40 via-transparent to-white/5" />
+            <div className="absolute right-5 top-5 z-20 flex gap-2 sm:hidden">
+              {socialLinks.map((item) => (
+                <a
+                  className="grid h-10 w-10 place-items-center rounded-full border border-white/25 bg-[#061815]/75 text-white shadow-lg backdrop-blur"
+                  href={item.href}
+                  key={item.label}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`HealBoxx ${item.label}`}
+                >
+                  {item.icon}
+                </a>
+              ))}
+            </div>
             <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/25 bg-[#07110f]/45 p-4 text-white shadow-2xl backdrop-blur-md sm:bottom-5 sm:left-5 sm:right-5 sm:p-5">
               <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[.18em] text-[#9debdc]"><Play size={14} /> HealBoxx care</span>
               <p className="mt-2 font-serif text-2xl font-black leading-tight sm:text-3xl">Online support that feels close, calm and human.</p>
