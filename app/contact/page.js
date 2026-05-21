@@ -11,7 +11,7 @@ export default function ContactPage() {
         eyebrow="Contact"
         title="Start with one simple conversation."
         text="Reach out for individual counselling, family support, EAP sessions or wellness coaching."
-        image="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85"
+        image="https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?auto=format&fit=crop&w=1200&q=85"
       />
       <section className="grid w-full max-w-full gap-5 overflow-hidden px-4 py-12 sm:px-6 sm:py-14 md:grid-cols-3 md:px-10 md:py-20 lg:px-14">
         <article className={card}>
