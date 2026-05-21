@@ -17,22 +17,34 @@ export default function Home() {
     <main>
       <SiteHeader />
 
-      <section className="relative grid min-h-[620px] items-end gap-8 overflow-hidden bg-[#07110f] px-5 py-12 text-white sm:px-6 md:min-h-[calc(100vh-74px)] md:grid-cols-[.9fr_.58fr] md:px-14">
-        <video className="absolute inset-0 h-full w-full scale-105 object-cover opacity-80" autoPlay muted loop playsInline>
-          <source src="https://healboxx.com/assets1/video/introVideo.mp4" type="video/mp4" />
-          <source src="https://healboxx.com/assets1/video/introVideo.webm" type="video/webm" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050f0d]/90 via-[#050f0d]/55 to-[#050f0d]/80" />
-        <div className="relative z-10 self-center">
-          <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wide text-[#9debdc]"><ShieldCheck size={16} /> Mental wellness, anywhere</span>
-          <h1 className="mt-5 max-w-3xl text-balance text-4xl font-black leading-[1.02] sm:text-5xl md:text-7xl xl:text-8xl">Heal on a call from anywhere, at any time.</h1>
-          <p className="mt-6 max-w-2xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8">Tech-enabled therapy, coaching and wellness support for emotional, psychological, social and lifestyle needs.</p>
+      <section className="relative grid min-h-[620px] items-center gap-8 overflow-hidden bg-[#07110f] px-5 py-10 text-white sm:px-6 md:min-h-[calc(100vh-74px)] md:grid-cols-[1.05fr_.95fr] md:px-14 lg:gap-12">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_24%,rgba(53,215,238,.22),transparent_34%),linear-gradient(135deg,#07110f_0%,#0e332d_52%,#07110f_100%)]" />
+
+        <div className="relative z-10 overflow-hidden rounded-[28px] border border-white/20 bg-white/10 p-2 shadow-[0_28px_90px_rgba(0,0,0,.38)] backdrop-blur md:order-1">
+          <div className="relative min-h-[360px] overflow-hidden rounded-[22px] sm:min-h-[440px] md:min-h-[560px]">
+            <video className="absolute inset-0 h-full w-full scale-[1.02] object-cover brightness-[1.18] contrast-[1.05] saturate-[1.12]" autoPlay muted loop playsInline>
+              <source src="https://healboxx.com/assets1/video/introVideo.mp4" type="video/mp4" />
+              <source src="https://healboxx.com/assets1/video/introVideo.webm" type="video/webm" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#04110f]/40 via-transparent to-white/5" />
+            <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/25 bg-[#07110f]/45 p-4 text-white shadow-2xl backdrop-blur-md sm:bottom-5 sm:left-5 sm:right-5 sm:p-5">
+              <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[.18em] text-[#9debdc]"><Play size={14} /> HealBoxx care</span>
+              <p className="mt-2 font-serif text-2xl font-black leading-tight sm:text-3xl">Online support that feels close, calm and human.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative z-10 self-center md:order-2">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#9debdc]/35 bg-white/10 px-4 py-2 text-xs font-black uppercase tracking-[.18em] text-[#9debdc] backdrop-blur"><ShieldCheck size={16} /> Mental wellness, anywhere</span>
+          <h1 className="mt-5 max-w-3xl text-balance font-serif text-4xl font-black leading-[1.02] tracking-normal text-white sm:text-5xl md:text-6xl xl:text-7xl">Heal on a call from anywhere, at any time.</h1>
+          <p className="mt-6 max-w-2xl text-base leading-7 text-white/78 sm:text-lg sm:leading-8">Tech-enabled therapy, coaching and wellness support for emotional, psychological, social and lifestyle needs.</p>
           <div className="mt-8 grid gap-3 sm:flex sm:flex-wrap sm:gap-4">
             <Link className={primary} href="/experts">Meet experts <ArrowRight size={18} /></Link>
             <Link className={secondary} href="/gallery"><Play size={18} /> View gallery</Link>
           </div>
         </div>
-        <div className="relative z-10 grid gap-3 self-end sm:grid-cols-3 md:grid-cols-1">
+
+        <div className="relative z-10 grid gap-3 self-end sm:grid-cols-3 md:order-3 md:col-span-2">
           {[
             ["15+", "Years of Experience"],
             ["100+", "Therapists"],

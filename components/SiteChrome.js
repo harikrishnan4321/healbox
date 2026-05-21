@@ -6,6 +6,7 @@ import {
   BriefcaseBusiness,
   ChevronDown,
   FileBadge2,
+  MessageCircle,
   Menu,
   X,
 } from "lucide-react";
@@ -277,74 +278,114 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   return (
-    <footer className="grid gap-8 bg-[#0d1715] px-5 py-12 text-white sm:px-6 md:grid-cols-[1.2fr_.6fr_.6fr] md:px-14 md:py-14">
-      <div className="grid content-start gap-3">
-        <Link className="inline-flex" href="/">
-          <img
-            className="h-12 w-[150px] object-contain"
-            src="/logo.png"
-            alt="HealBoxx"
-          />
-        </Link>
+    <>
+      <footer className="grid gap-8 bg-[#0d1715] px-5 py-12 text-white sm:px-6 md:grid-cols-[1.2fr_.6fr_.6fr] md:px-14 md:py-14">
+        <div className="grid content-start gap-4">
+          <Link className="inline-flex" href="/">
+            <img
+              className="h-12 w-[150px] object-contain"
+              src="/logo.png"
+              alt="HealBoxx"
+            />
+          </Link>
 
-        <p className="max-w-md text-base leading-7 text-white/70">
-          Your one-stop solution for mental health, therapy, coaching and
-          wellness.
-        </p>
-      </div>
+          <p className="max-w-md text-base leading-7 text-white/70">
+            Your one-stop solution for mental health, therapy, coaching and
+            wellness.
+          </p>
 
-      <div className="grid content-start gap-2">
-        <h3 className="mb-2 text-xl font-black">Pages</h3>
+          <div className="flex flex-wrap gap-3 pt-1" aria-label="Social media links">
+            {[
+              ["X", "https://twitter.com/healboxx"],
+              ["FB", "https://www.facebook.com/healboxx"],
+              ["IG", "https://www.instagram.com/healboxx/"],
+              ["YT", "https://www.youtube.com/@healboxx"],
+            ].map(([label, href]) => (
+              <a
+                className="grid h-11 min-w-11 place-items-center rounded-full border border-white/15 bg-white/10 px-3 text-sm font-black text-white transition hover:-translate-y-1 hover:border-[#ffd35e] hover:bg-[#ffd35e] hover:text-[#10201d]"
+                href={href}
+                key={label}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`HealBoxx ${label} social link`}
+              >
+                {label}
+              </a>
+            ))}
+          </div>
+        </div>
 
-        {[
-          "About Us",
-          "Services",
-          "Gallery",
-          "Corporate and EAP",
-          "Experts",
-          "Hello",
-          "Blog",
-        ].map((label, index) => (
+        <div className="grid content-start gap-2">
+          <h3 className="mb-2 text-xl font-black">Pages</h3>
+
+          {[
+            "About Us",
+            "Services",
+            "Gallery",
+            "Corporate and EAP",
+            "Experts",
+            "Hello",
+            "Blog",
+          ].map((label, index) => (
+            <Link
+              className="text-white/75 transition hover:text-[#ffd35e]"
+              href={[
+                "/about",
+                "/services",
+                "/gallery",
+                "/corporate-eap",
+                "/experts",
+                "/hello",
+                "/blog",
+              ][index]}
+              key={label}
+            >
+              {label}
+            </Link>
+          ))}
+        </div>
+
+        <div className="grid content-start gap-2">
+          <h3 className="mb-2 text-xl font-black">Connect</h3>
           <Link
             className="text-white/75 transition hover:text-[#ffd35e]"
-            href={[
-              "/about",
-              "/services",
-              "/gallery",
-              "/corporate-eap",
-              "/experts",
-              "/hello",
-              "/blog",
-            ][index]}
-            key={label}
+            href="/register"
           >
-            {label}
+            Professional Register
           </Link>
-        ))}
-      </div>
+          <Link
+            className="text-white/75 transition hover:text-[#ffd35e]"
+            href="/hello"
+          >
+            Contact HealBoxx
+          </Link>
+          <Link
+            className="text-white/75 transition hover:text-[#ffd35e]"
+            href="/corporate-eap"
+          >
+            Corporate Wellness
+          </Link>
+          <a
+            className="mt-2 inline-flex items-center gap-2 rounded-lg bg-[#25d366] px-4 py-3 font-black text-[#07110f] shadow-lg transition hover:-translate-y-1"
+            href="https://wa.me/917200045559"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <MessageCircle size={18} /> WhatsApp Us
+          </a>
+        </div>
+      </footer>
 
-      <div className="grid content-start gap-2">
-        <h3 className="mb-2 text-xl font-black">Connect</h3>
-        <Link
-          className="text-white/75 transition hover:text-[#ffd35e]"
-          href="/register"
-        >
-          Professional Register
-        </Link>
-        <Link
-          className="text-white/75 transition hover:text-[#ffd35e]"
-          href="/hello"
-        >
-          Contact HealBoxx
-        </Link>
-        <Link
-          className="text-white/75 transition hover:text-[#ffd35e]"
-          href="/corporate-eap"
-        >
-          Corporate Wellness
-        </Link>
-      </div>
-    </footer>
+      <a
+        className="fixed bottom-5 right-5 z-[130] inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25d366] text-[#07110f] shadow-[0_16px_40px_rgba(37,211,102,.38)] ring-4 ring-white/80 transition hover:-translate-y-1 sm:bottom-6 sm:right-6 sm:h-16 sm:w-16"
+        href="https://wa.me/917200045559"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Chat with HealBoxx on WhatsApp"
+      >
+        <MessageCircle className="h-7 w-7 sm:h-8 sm:w-8" />
+      </a>
+    </>
   );
 }
 
