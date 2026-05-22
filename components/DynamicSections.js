@@ -9,7 +9,7 @@ const pageSize = 6;
 const section = "w-full max-w-full overflow-hidden px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-18 lg:px-14 lg:py-20";
 const eyebrow = "inline-flex items-center gap-2 text-xs font-black uppercase tracking-wide text-[#096454]";
 const sectionHead = "mb-9 max-w-3xl";
-const sectionTitle = "mt-3 text-balance text-3xl font-black leading-[1.05] text-[#10201d] sm:text-4xl md:text-6xl";
+const sectionTitle = "mt-3 text-balance text-3xl font-black leading-[1.05] text-[#10201d] sm:text-4xl md:text-5xl lg:text-6xl";
 const sectionText = "mt-4 text-base leading-7 text-[#63706d] sm:text-lg sm:leading-8";
 const inputShell = "flex min-h-12 flex-1 items-center gap-3 rounded-lg border border-[#dce8e3] bg-white px-4 text-[#10201d]";
 const card = "overflow-hidden rounded-lg border border-[#dce8e3] bg-white shadow-[0_16px_40px_rgba(25,53,48,.08)] transition hover:-translate-y-1 hover:shadow-2xl";
@@ -40,12 +40,12 @@ export function GallerySection({ preview = false }) {
     <section className={`${section} bg-[#10201d] text-white`} id="gallery">
       <div className={sectionHead}>
         <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wide text-[#c8efe2]"><ImageIcon size={16} /> Gallery</span>
-        <h2 className="mt-3 text-balance text-3xl font-black leading-[1.05] sm:text-4xl md:text-6xl">Moments that feel calm, human and hopeful.</h2>
+        <h2 className="mt-3 text-balance text-3xl font-black leading-[1.05] sm:text-4xl md:text-5xl lg:text-6xl">Moments that feel calm, human and hopeful.</h2>
         <p className="mt-4 text-base leading-7 text-white/70 sm:text-lg sm:leading-8">These photos and GIFs are loaded from the content store and stay responsive on mobile, tablet and desktop.</p>
       </div>
 
       {!preview && (
-        <div className="mb-8 flex min-w-0 flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div className="mb-8 flex min-w-0 flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <label className="flex min-h-12 flex-1 items-center gap-3 rounded-lg border border-white/25 bg-white/10 px-4 text-white">
             <Search size={16} />
             <input className="w-full bg-transparent outline-none placeholder:text-white/60" value={query} onChange={(event) => { setQuery(event.target.value); setPage(1); }} placeholder="Search gallery" />
@@ -63,7 +63,7 @@ export function GallerySection({ preview = false }) {
       {loading ? (
         <div className="flex min-h-44 items-center justify-center gap-3 rounded-lg bg-white text-[#10201d]"><Loader2 className="animate-spin" /> Loading gallery</div>
       ) : (
-        <div className="grid min-w-0 auto-rows-[minmax(280px,auto)] grid-cols-1 gap-4 sm:auto-rows-[300px] md:grid-cols-2 xl:grid-cols-[minmax(0,1.15fr)_minmax(0,.85fr)_minmax(0,1fr)]">
+        <div className="grid min-w-0 auto-rows-[minmax(260px,auto)] grid-cols-1 gap-4 sm:auto-rows-[300px] md:grid-cols-2 xl:grid-cols-[minmax(0,1.15fr)_minmax(0,.85fr)_minmax(0,1fr)]">
           {visibleItems.map((item, index) => (
             <article className={`group relative min-h-[250px] overflow-hidden rounded-lg border border-white/20 bg-[#0a211d] ${index % 4 === 0 || index % 4 === 3 ? "xl:row-span-2" : ""}`} key={item.id}>
               {item.type === "gif" && <span className="absolute right-4 top-4 z-10 rounded-full bg-[#ffd35e] px-3 py-1 text-xs font-black text-[#10201d]">Animated</span>}
@@ -108,9 +108,9 @@ export function ExpertsSection({ preview = false }) {
       </div>
 
       {!preview && (
-        <div className="mb-8 flex min-w-0 flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div className="mb-8 flex min-w-0 flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <label className={inputShell}><Search size={16} /><input className="w-full bg-transparent outline-none" value={query} onChange={(event) => { setQuery(event.target.value); setPage(1); }} placeholder="Search experts" /></label>
-          <select className="min-h-12 w-full rounded-lg border border-[#dce8e3] bg-white px-4 text-[#10201d] outline-none md:w-72" value={role} onChange={(event) => { setRole(event.target.value); setPage(1); }}>
+          <select className="min-h-12 w-full rounded-lg border border-[#dce8e3] bg-white px-4 text-[#10201d] outline-none lg:w-72" value={role} onChange={(event) => { setRole(event.target.value); setPage(1); }}>
             {roles.map((option) => <option value={option} key={option}>{option === "all" ? "All roles" : option}</option>)}
           </select>
         </div>
@@ -141,7 +141,7 @@ export function ExpertsSection({ preview = false }) {
 
 function Pagination({ page, totalPages, setPage, dark = false }) {
   return (
-    <div className={`mt-8 flex flex-col items-stretch justify-center gap-3 md:flex-row md:items-center ${dark ? "text-white" : "text-[#10201d]"}`}>
+    <div className={`mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center ${dark ? "text-white" : "text-[#10201d]"}`}>
       <button className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-[#dce8e3] bg-white px-4 font-black text-[#10201d] disabled:opacity-45" type="button" disabled={page === 1} onClick={() => setPage((value) => Math.max(1, value - 1))}>
         <ChevronLeft size={17} /> Prev
       </button>

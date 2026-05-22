@@ -6,7 +6,7 @@ import { benefits, services } from "@/data/siteContent";
 
 const section = "w-full max-w-full overflow-hidden px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-18 lg:px-14 lg:py-20";
 const eyebrow = "inline-flex items-center gap-2 text-xs font-black uppercase tracking-wide text-[#096454]";
-const sectionTitle = "mt-3 text-balance text-3xl font-black leading-[1.05] text-[#10201d] sm:text-4xl md:text-6xl";
+const sectionTitle = "mt-3 text-balance text-3xl font-black leading-[1.05] text-[#10201d] sm:text-4xl md:text-5xl lg:text-6xl";
 const muted = "text-base leading-7 text-[#63706d] sm:text-lg sm:leading-8";
 const primary = "inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#0f8d7a] to-[#13aa91] px-5 font-black text-white shadow-lg sm:w-auto";
 const secondary = "inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg border border-white/30 bg-white/15 px-5 font-black text-white backdrop-blur sm:w-auto";
@@ -56,10 +56,10 @@ export default function Home() {
     <main>
       <SiteHeader />
 
-      <section className="relative grid w-full max-w-full grid-cols-1 items-center gap-7 overflow-hidden bg-[#07110f] px-4 py-8 text-white sm:px-6 md:min-h-[calc(100vh-74px)] md:grid-cols-[minmax(0,1.05fr)_minmax(0,.95fr)] md:px-8 lg:gap-12 lg:px-14">
+      <section className="relative grid w-full max-w-full grid-cols-1 items-center gap-7 overflow-hidden bg-[#07110f] px-4 py-8 text-white sm:px-6 md:px-8 lg:min-h-[calc(100vh-74px)] lg:grid-cols-[minmax(0,1.05fr)_minmax(0,.95fr)] lg:gap-12 lg:px-14">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_24%,rgba(53,215,238,.22),transparent_34%),linear-gradient(135deg,#07110f_0%,#0e332d_52%,#07110f_100%)]" />
 
-        <div className="relative z-10 w-full max-w-full overflow-hidden rounded-2xl border border-white/20 bg-white/10 p-2 shadow-[0_28px_90px_rgba(0,0,0,.38)] backdrop-blur sm:rounded-[28px] md:order-1">
+        <div className="relative z-10 w-full max-w-full overflow-hidden rounded-2xl border border-white/20 bg-white/10 p-2 shadow-[0_28px_90px_rgba(0,0,0,.38)] backdrop-blur sm:rounded-[28px] lg:order-1">
           <div className="absolute left-3 top-1/2 z-30 hidden -translate-y-1/2 gap-2 lg:grid xl:left-4 xl:gap-3">
             {socialLinks.map((item) => (
               <a
@@ -75,10 +75,10 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="relative aspect-[4/5] w-full max-w-full overflow-hidden rounded-2xl sm:aspect-[16/12] md:min-h-[500px] md:rounded-[22px] lg:min-h-[560px]">
+          <div className="relative aspect-[4/5] w-full max-w-full overflow-hidden rounded-2xl sm:aspect-[16/11] md:aspect-[16/9] md:rounded-[22px] lg:aspect-auto lg:min-h-[560px]">
             <video className="absolute inset-0 h-full w-full scale-[1.02] object-cover brightness-[1.18] contrast-[1.05] saturate-[1.12]" autoPlay muted loop playsInline>
-              <source src="https://healboxx.com/assets1/video/introVideo.mp4" type="video/mp4" />
-              <source src="https://healboxx.com/assets1/video/introVideo.webm" type="video/webm" />
+              <source src="/introVideo.mp4" type="video/mp4" />
+              <source src="/introVideo.webm" type="video/webm" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-t from-[#04110f]/40 via-transparent to-white/5" />
             <div className="absolute right-3 top-3 z-20 flex max-w-[calc(100%-1.5rem)] flex-wrap justify-end gap-2 lg:hidden">
@@ -102,9 +102,9 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative z-10 min-w-0 self-center md:order-2">
+        <div className="relative z-10 min-w-0 self-center lg:order-2">
           <span className="inline-flex items-center gap-2 rounded-full border border-[#9debdc]/35 bg-white/10 px-4 py-2 text-xs font-black uppercase tracking-[.18em] text-[#9debdc] backdrop-blur"><ShieldCheck size={16} /> Mental wellness, anywhere</span>
-          <h1 className="mt-5 max-w-3xl text-balance font-serif text-4xl font-black leading-[1.02] tracking-normal text-white sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl">Heal on a call from anywhere, at any time.</h1>
+          <h1 className="mt-5 max-w-3xl text-balance font-serif text-4xl font-black leading-[1.02] tracking-normal text-white sm:text-5xl lg:text-6xl xl:text-7xl">Heal on a call from anywhere, at any time.</h1>
           <p className="mt-6 max-w-2xl text-base leading-7 text-white/78 sm:text-lg sm:leading-8">Tech-enabled therapy, coaching and wellness support for emotional, psychological, social and lifestyle needs.</p>
           <div className="mt-8 grid gap-3 sm:flex sm:flex-wrap sm:gap-4">
             <Link className={primary} href="/experts">Meet experts <ArrowRight size={18} /></Link>
@@ -112,7 +112,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative z-10 grid min-w-0 gap-3 self-end sm:grid-cols-3 md:order-3 md:col-span-2">
+        <div className="relative z-10 grid min-w-0 gap-3 self-end sm:grid-cols-3 lg:order-3 lg:col-span-2">
           {[
             ["15+", "Years of Experience"],
             ["100+", "Therapists"],
@@ -125,7 +125,7 @@ export default function Home() {
 
       <ProfessionalStrip />
 
-      <section className={`${section} grid min-w-0 gap-8 border-y border-[#dce8e3] bg-white md:grid-cols-[minmax(0,.85fr)_minmax(0,1fr)] md:items-start`}>
+      <section className={`${section} grid min-w-0 gap-8 border-y border-[#dce8e3] bg-white lg:grid-cols-[minmax(0,.85fr)_minmax(0,1fr)] lg:items-start`}>
         <div>
           <span className={eyebrow}><Phone size={16} /> About HealBoxx</span>
           <h2 className={sectionTitle}>Care that is warm, practical and easy to reach.</h2>
@@ -158,11 +158,11 @@ export default function Home() {
         <img className="absolute inset-0 h-full w-full object-cover brightness-60" src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&w=1400&q=85" alt="Peaceful wellness session" />
         <div className="relative z-10 grid place-items-center gap-5 p-6 sm:p-8">
           <button className="grid h-16 w-16 place-items-center rounded-full bg-[#f47c68] sm:h-20 sm:w-20" aria-label="Play promo"><Play /></button>
-          <h2 className="text-3xl font-black leading-tight sm:text-4xl md:text-6xl">How it works? Play and watch.</h2>
+          <h2 className="text-3xl font-black leading-tight sm:text-4xl md:text-5xl lg:text-6xl">How it works? Play and watch.</h2>
         </div>
       </section>
 
-      <section className={`${section} grid min-w-0 items-center gap-10 bg-white md:grid-cols-[minmax(0,1fr)_minmax(0,.72fr)]`}>
+      <section className={`${section} grid min-w-0 items-center gap-10 bg-white lg:grid-cols-[minmax(0,1fr)_minmax(0,.72fr)]`}>
         <div>
           <span className={eyebrow}><Download size={16} /> Download App</span>
           <h2 className={sectionTitle}>Carry your therapist, resources and calm resets with you.</h2>
@@ -191,7 +191,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={`${section} grid min-w-0 gap-8 border-y border-[#dce8e3] bg-white md:grid-cols-[minmax(0,.85fr)_minmax(0,1fr)]`}>
+      <section className={`${section} grid min-w-0 gap-8 border-y border-[#dce8e3] bg-white lg:grid-cols-[minmax(0,.85fr)_minmax(0,1fr)]`}>
         <div>
           <span className={eyebrow}><Languages size={16} /> Our founders</span>
           <h2 className={sectionTitle}>Visionaries behind accessible wellness.</h2>

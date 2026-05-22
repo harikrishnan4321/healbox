@@ -57,7 +57,7 @@ export default function RegistrationForm() {
         </div>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4 lg:grid-cols-2">
         <label className={labelClass}>Full Name<input className={fieldClass} name="name" value={form.name} onChange={update} required /></label>
         <label className={labelClass}>Email<input className={fieldClass} type="email" name="email" value={form.email} onChange={update} required /></label>
         <label className={labelClass}>Phone<input className={fieldClass} name="phone" value={form.phone} onChange={update} required /></label>
@@ -66,7 +66,7 @@ export default function RegistrationForm() {
         <label className={labelClass}>Experience<input className={fieldClass} name="experience" value={form.experience} onChange={update} placeholder="8+ years" /></label>
         <label className={labelClass}>City<input className={fieldClass} name="city" value={form.city} onChange={update} /></label>
         <label className={labelClass}>Qualification<input className={fieldClass} name="qualification" value={form.qualification} onChange={update} /></label>
-        <label className={`${labelClass} md:col-span-2`}>Message<textarea className={`${fieldClass} min-h-32 resize-y`} name="message" value={form.message} onChange={update} placeholder="Tell us about your practice, availability or services." /></label>
+        <label className={`${labelClass} lg:col-span-2`}>Message<textarea className={`${fieldClass} min-h-32 resize-y`} name="message" value={form.message} onChange={update} placeholder="Tell us about your practice, availability or services." /></label>
       </div>
 
       <button className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-gradient-to-r from-[#0f8d7a] to-[#13aa91] px-5 text-sm font-black text-white shadow-lg disabled:opacity-60 sm:text-base" type="submit" disabled={saving}>

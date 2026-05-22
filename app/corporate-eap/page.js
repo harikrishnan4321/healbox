@@ -14,7 +14,7 @@ export default function CorporatePage() {
         text="Bring confidential counselling, stress support and resilience programs into your workplace."
         image="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=85"
       />
-      <section className="grid w-full max-w-full gap-5 overflow-hidden px-4 py-12 sm:px-6 sm:py-14 md:grid-cols-3 md:px-10 md:py-20 lg:px-14">
+      <section className="grid w-full max-w-full gap-5 overflow-hidden px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-16 lg:grid-cols-3 lg:px-14 lg:py-20">
         {[
           [Building2, "Employee Assistance", "Private counselling access for employees and families."],
           [ShieldCheck, "Confidential care", "Respectful support pathways with secure handling."],
@@ -27,9 +27,9 @@ export default function CorporatePage() {
           </article>
         ))}
       </section>
-      <section className="flex w-full max-w-full flex-col gap-5 overflow-hidden bg-[#10201d] px-4 py-12 text-white sm:px-6 sm:py-14 md:flex-row md:items-center md:justify-between md:px-10 md:py-20 lg:px-14">
-        <h2 className="max-w-3xl text-3xl font-black leading-[1.05] sm:text-4xl md:text-6xl">Plan an EAP session for your organisation.</h2>
-        <Link className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#0f8d7a] to-[#13aa91] px-5 font-black text-white shadow-lg md:shrink-0" href="/hello">Talk to HealBoxx <ArrowRight size={18} /></Link>
+      <section className="flex w-full max-w-full flex-col gap-5 overflow-hidden bg-[#10201d] px-4 py-12 text-white sm:px-6 sm:py-14 md:px-10 md:py-16 lg:flex-row lg:items-center lg:justify-between lg:px-14 lg:py-20">
+        <h2 className="max-w-3xl text-3xl font-black leading-[1.05] sm:text-4xl md:text-5xl lg:text-6xl">Plan an EAP session for your organisation.</h2>
+        <Link className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#0f8d7a] to-[#13aa91] px-5 font-black text-white shadow-lg lg:shrink-0" href="/hello">Talk to HealBoxx <ArrowRight size={18} /></Link>
       </section>
       <SiteFooter />
     </main>
