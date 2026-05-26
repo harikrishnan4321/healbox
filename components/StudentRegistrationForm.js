@@ -1,15 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CheckCircle2, GraduationCap, Loader2, Send } from "lucide-react";
 import content from "@/data/content.json";
+import { apiClient } from "@/lib/apiClient";
 
 const colleges = content.colleges || [];
 
 const emptyForm = {
-  studentName: "",
+  name: "",
   phone: "",
-  college: ""
+  collegeID: ""
 };
 
 const labelClass = "grid gap-2 font-black text-[#334540]";
@@ -19,27 +20,54 @@ export default function StudentRegistrationForm() {
   const [form, setForm] = useState(emptyForm);
   const [status, setStatus] = useState("");
   const [saving, setSaving] = useState(false);
-
+  const [collegeList, setCollegeList] = useState([]);
   function update(event) {
     setForm({ ...form, [event.target.name]: event.target.value });
   }
 
-  function submit(event) {
+  useEffect(() => {
+    async function fetchColleges() {
+      try {
+        const response = await apiClient.get("/colleges/getnames");
+        setCollegeList(response.data.data || []);
+      }
+      catch (error) {
+        console.error("Error fetching colleges:", error);
+      }
+    }
+    fetchColleges();
+  }, []);
+
+  async function submit(event) {
     event.preventDefault();
+
     setSaving(true);
     setStatus("");
 
-    const saved = JSON.parse(localStorage.getItem("healboxxStudentRegistrations") || "[]");
-    const registration = {
-      ...form,
-      id: `${form.studentName.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-${Date.now()}`,
-      createdAt: new Date().toISOString()
-    };
+    try {
+      const registration = {
+        ...form,
+      };
 
-    localStorage.setItem("healboxxStudentRegistrations", JSON.stringify([registration, ...saved]));
-    setForm(emptyForm);
-    setStatus("Student registration submitted successfully.");
-    setSaving(false);
+      const response = await apiClient.post(
+        "/students/addstudent",
+        registration
+      );
+
+      setForm(emptyForm);
+
+      setStatus(response.data.message);
+
+    } catch (error) {
+
+      setStatus(
+        error?.response?.data?.message ||
+        "Failed to submit student registration."
+      );
+
+    } finally {
+      setSaving(false);
+    }
   }
 
   return (
@@ -54,20 +82,46 @@ export default function StudentRegistrationForm() {
 
       <label className={labelClass}>
         Student Name
-        <input className={fieldClass} name="studentName" value={form.studentName} onChange={update} placeholder="Enter student name" required />
+        <input
+          className={fieldClass}
+          name="name"
+          value={form.name}
+          onChange={update}
+          placeholder="Enter student name"
+          required
+        />
       </label>
 
       <label className={labelClass}>
         Mobile Number
-        <input className={fieldClass} name="phone" value={form.phone} onChange={update} inputMode="tel" placeholder="Enter mobile number" required />
+        <input
+          className={fieldClass}
+          name="phone"
+          value={form.phone}
+          onChange={update}
+          inputMode="tel"
+          placeholder="Enter mobile number"
+          required
+        />
       </label>
 
       <label className={labelClass}>
         College
-        <select className={fieldClass} name="college" value={form.college} onChange={update} required>
-          <option value="">Select college</option>
-          {colleges.map((college) => (
-            <option value={college} key={college}>{college}</option>
+        <select
+          className={fieldClass}
+          name="collegeID"
+          value={form.collegeID}
+          onChange={update}
+          required
+        >
+          <option value="" disabled>
+            Select college
+          </option>
+
+          {collegeList.map((college) => (
+            <option value={college._id} key={college._id}>
+              {college.name}
+            </option>
           ))}
         </select>
       </label>
@@ -77,7 +131,16 @@ export default function StudentRegistrationForm() {
         {saving ? "Submitting..." : "Submit Student Registration"}
       </button>
 
-      {status && <p className="inline-flex items-center gap-2 font-black text-[#096454]"><CheckCircle2 size={18} /> {status}</p>}
+      {status && (
+        <p
+          className={`inline-flex items-center gap-2 font-black ${status.includes("success")
+              ? "text-[#096454]"
+              : "text-red-500"
+            }`}
+        >{status}</p>
+      )}
+
+
     </form>
   );
 }
