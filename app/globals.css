@@ -68,5 +68,6 @@ footer {
   50% {
     transform: scaleX(1);
     opacity: 1;
+    
   }
 }
