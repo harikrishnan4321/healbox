@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BriefcaseBusiness, ChevronDown, FileBadge2, Menu, X } from "lucide-react";
+import { BriefcaseBusiness, ChevronDown, FileBadge2, GraduationCap, Menu, X } from "lucide-react";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -83,13 +83,22 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <Link
-          className="hidden min-h-12 items-center gap-2 rounded-lg border border-white/25 bg-white/15 px-4 text-xs font-black text-white shadow-[inset_0_1px_rgba(255,255,255,.18)] transition hover:bg-white/25 xl:inline-flex"
-          href="/register"
-        >
-          <FileBadge2 className="h-6 w-6 text-[#35d7ee]" />
-          <span className="grid leading-tight">Professional<strong className="text-[#ffb21e]">Register</strong></span>
-        </Link>
+        <div className="hidden items-center gap-2 xl:flex">
+          <Link
+            className="inline-flex min-h-12 items-center gap-2 rounded-lg border border-white/25 bg-white/15 px-3 text-xs font-black text-white shadow-[inset_0_1px_rgba(255,255,255,.18)] transition hover:bg-white/25 2xl:px-4"
+            href="/register"
+          >
+            <FileBadge2 className="h-5 w-5 text-[#35d7ee]" />
+            <span className="grid leading-tight">Professional<strong className="text-[#ffb21e]">Register</strong></span>
+          </Link>
+          <Link
+            className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-[#ffd35e] px-3 text-xs font-black text-[#10201d] shadow-lg transition hover:bg-[#ffe08a] 2xl:px-4"
+            href="/student-registration"
+          >
+            <GraduationCap className="h-5 w-5" />
+            <span className="grid leading-tight">Student<strong>Register</strong></span>
+          </Link>
+        </div>
 
         <details className="group xl:hidden">
           <summary className="grid h-11 w-11 cursor-pointer list-none place-items-center rounded-lg border border-[#dce8e3] bg-white text-[#10201d] transition active:scale-95 [&::-webkit-details-marker]:hidden" aria-label="Menu">
@@ -124,9 +133,14 @@ export function SiteHeader() {
                 <NavLink key={item.href} {...item} pathname={pathname} mobile />
               ))}
 
-              <Link className="mt-2 inline-flex min-h-12 items-center justify-center rounded-2xl bg-[#ffd35e] px-4 py-3 text-[15px] font-black text-[#10201d] shadow-lg" href="/register">
-                Register Professional
-              </Link>
+              <div className="mt-2 grid gap-2 sm:grid-cols-2">
+                <Link className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-[#ffd35e] px-4 py-3 text-[15px] font-black text-[#10201d] shadow-lg" href="/register">
+                  Professional Register
+                </Link>
+                <Link className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-[#10201d] px-4 py-3 text-[15px] font-black text-white shadow-lg" href="/student-registration">
+                  Student Register
+                </Link>
+              </div>
             </div>
           </nav>
         </details>
@@ -167,6 +181,7 @@ export function SiteFooter() {
             ["Gallery", "/gallery"],
             ["Corporate & EAP", "/corporate-eap"],
             ["Experts", "/experts"],
+            ["Student Registration", "/student-registration"],
             ["Hello", "/hello"],
             ["Blog", "/blog"]
           ].map(([label, href]) => (
@@ -176,6 +191,7 @@ export function SiteFooter() {
         <div className="grid content-start gap-3">
           <h3 className="text-xl font-black">Connect</h3>
           <Link className="text-white/72 transition hover:text-[#ffd35e]" href="/register">Professional Register</Link>
+          <Link className="text-white/72 transition hover:text-[#ffd35e]" href="/student-registration">Student Register</Link>
           <Link className="text-white/72 transition hover:text-[#ffd35e]" href="/hello">Contact HealBoxx</Link>
           <Link className="text-white/72 transition hover:text-[#ffd35e]" href="/corporate-eap">Corporate Wellness</Link>
           <a className="mt-1 inline-flex min-h-11 w-fit items-center gap-2 rounded-lg bg-[#25d366] px-4 text-sm font-black text-[#07110f] shadow-lg" href="https://wa.me/917200045559" target="_blank" rel="noreferrer">

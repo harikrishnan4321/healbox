@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Download, Languages, LockKeyhole, Phone, Play, ShieldCheck, Star, UsersRound } from "lucide-react";
 import { ExpertsSection, GallerySection } from "@/components/DynamicSections";
+import ProductsCoursesSection from "@/components/ProductsCoursesSection";
 import { ProfessionalStrip, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { benefits, services } from "@/data/siteContent";
 
@@ -153,6 +154,8 @@ export default function Home() {
         </div>
         <Link className="mt-7 inline-flex items-center gap-2 font-black text-[#096454]" href="/services">Explore all services <ArrowRight size={18} /></Link>
       </section>
+
+      <ProductsCoursesSection />
 
       <section className="relative grid min-h-[430px] place-items-center overflow-hidden text-center text-white">
         <img className="absolute inset-0 h-full w-full object-cover brightness-60" src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&w=1400&q=85" alt="Peaceful wellness session" />
