@@ -12,7 +12,7 @@ export default function CorporatePage() {
         eyebrow="Corporate and EAP session"
         title="Wellness programs for healthier, steadier teams."
         text="Bring confidential counselling, stress support and resilience programs into your workplace."
-        image="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=85"
+        image="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=82"
       />
       <section className="grid w-full max-w-full gap-5 overflow-hidden px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-16 lg:grid-cols-3 lg:px-14 lg:py-20">
         {[

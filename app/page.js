@@ -5,10 +5,10 @@ import ProductsCoursesSection from "@/components/ProductsCoursesSection";
 import { ProfessionalStrip, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { benefits, services } from "@/data/siteContent";
 
-const section = "w-full max-w-full overflow-hidden px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-18 lg:px-14 lg:py-20";
-const eyebrow = "inline-flex items-center gap-2 text-xs font-black uppercase tracking-wide text-[#096454]";
-const sectionTitle = "mt-3 text-balance text-3xl font-black leading-[1.05] text-[#10201d] sm:text-4xl md:text-5xl lg:text-6xl";
-const muted = "text-base leading-7 text-[#63706d] sm:text-lg sm:leading-8";
+const section = "w-full max-w-full overflow-hidden px-4 py-10 sm:px-6 sm:py-12 md:px-10 md:py-14 lg:px-14 lg:py-16";
+const eyebrow = "inline-flex items-center gap-2 text-xs font-black uppercase tracking-wide text-[#0a7a69]";
+const sectionTitle = "mt-3 text-balance text-3xl font-black leading-[1.12] text-[#1d342f] sm:text-4xl lg:text-5xl";
+const muted = "text-base leading-7 text-[#526862] sm:text-lg sm:leading-8";
 const primary = "inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#0f8d7a] to-[#13aa91] px-5 font-black text-white shadow-lg sm:w-auto";
 const secondary = "inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg border border-white/30 bg-white/15 px-5 font-black text-white backdrop-blur sm:w-auto";
 const card = "overflow-hidden rounded-lg border border-[#dce8e3] bg-white shadow-[0_16px_40px_rgba(25,53,48,.08)] transition hover:-translate-y-1 hover:shadow-2xl";
@@ -77,11 +77,11 @@ export default function Home() {
           </div>
 
           <div className="relative aspect-[4/5] w-full max-w-full overflow-hidden rounded-2xl sm:aspect-[16/11] md:aspect-[16/9] md:rounded-[22px] lg:aspect-auto lg:min-h-[560px]">
-            <video className="absolute inset-0 h-full w-full scale-[1.02] object-cover brightness-[1.18] contrast-[1.05] saturate-[1.12]" autoPlay muted loop playsInline>
+            <video className="absolute inset-0 h-full w-full scale-[1.01] object-cover brightness-[.92] contrast-[1.02] saturate-[1.05]" autoPlay muted loop playsInline>
               <source src="/introVideo.mp4" type="video/mp4" />
               <source src="/introVideo.webm" type="video/webm" />
             </video>
-            <div className="absolute inset-0 bg-gradient-to-t from-[#04110f]/40 via-transparent to-white/5" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#04110f]/72 via-[#04110f]/18 to-transparent" />
             <div className="absolute right-3 top-3 z-20 flex max-w-[calc(100%-1.5rem)] flex-wrap justify-end gap-2 lg:hidden">
               {socialLinks.map((item) => (
                 <a
@@ -98,15 +98,15 @@ export default function Home() {
             </div>
             <div className="absolute bottom-3 left-3 right-3 rounded-2xl border border-white/25 bg-[#07110f]/55 p-3 text-white shadow-2xl backdrop-blur-md sm:bottom-5 sm:left-5 sm:right-5 sm:p-5">
               <span className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[.14em] text-[#9debdc] sm:text-xs sm:tracking-[.18em]"><Play size={14} /> HealBoxx care</span>
-              <p className="mt-2 text-balance font-serif text-xl font-black leading-tight sm:text-2xl lg:text-3xl">Online support that feels close, calm and human.</p>
+              <p className="mt-2 text-balance text-xl font-black leading-tight sm:text-2xl lg:text-3xl">Video care that feels close, calm and human.</p>
             </div>
           </div>
         </div>
 
         <div className="relative z-10 min-w-0 self-center lg:order-2">
           <span className="inline-flex items-center gap-2 rounded-full border border-[#9debdc]/35 bg-white/10 px-4 py-2 text-xs font-black uppercase tracking-[.18em] text-[#9debdc] backdrop-blur"><ShieldCheck size={16} /> Mental wellness, anywhere</span>
-          <h1 className="mt-5 max-w-3xl text-balance font-serif text-4xl font-black leading-[1.02] tracking-normal text-white sm:text-5xl lg:text-6xl xl:text-7xl">Heal on a call from anywhere, at any time.</h1>
-          <p className="mt-6 max-w-2xl text-base leading-7 text-white/78 sm:text-lg sm:leading-8">Tech-enabled therapy, coaching and wellness support for emotional, psychological, social and lifestyle needs.</p>
+          <h1 className="mt-5 max-w-3xl text-balance text-4xl font-black leading-[1.05] tracking-normal text-white sm:text-5xl lg:text-6xl">Talk it through, heal through it, anytime, anywhere.</h1>
+          <p className="mt-6 max-w-2xl rounded-lg bg-[#07110f]/45 p-3 text-base font-semibold leading-7 text-white/88 backdrop-blur sm:text-lg sm:leading-8">Your all-in-one platform for therapy, guidance and wellness care, available whenever life needs support.</p>
           <div className="mt-8 grid gap-3 sm:flex sm:flex-wrap sm:gap-4">
             <Link className={primary} href="/experts">Meet experts <ArrowRight size={18} /></Link>
             <Link className={secondary} href="/gallery"><Play size={18} /> View gallery</Link>
@@ -117,7 +117,7 @@ export default function Home() {
           {[
             ["15+", "Years of Experience"],
             ["100+", "Therapists"],
-            ["500+", "Get help and healed"]
+            ["500+", "People helped, lives changed"]
           ].map(([number, label]) => (
             <strong className="grid rounded-lg border border-white/20 bg-white/15 p-4 text-2xl font-black text-[#ffd35e] backdrop-blur sm:p-5" key={label}>{number}<span className="mt-1 text-sm text-white/75">{label}</span></strong>
           ))}
@@ -131,13 +131,13 @@ export default function Home() {
           <span className={eyebrow}><Phone size={16} /> About HealBoxx</span>
           <h2 className={sectionTitle}>Care that is warm, practical and easy to reach.</h2>
         </div>
-        <p className={muted}>Heal Boxx helps people work through stress, relationships, confidence, career pressure and life transitions with professional support built around everyday life.</p>
+        <p className={`${muted} max-w-3xl text-lg`}>HealBoxx is there for you through stress, relationships, confidence, career pressure and life transitions with professional support you can access anytime, anywhere, making everyday life easier to manage.</p>
       </section>
 
       <section className={section}>
         <div className="mb-9 max-w-3xl">
           <span className={eyebrow}><UsersRound size={16} /> Our services</span>
-          <h2 className={sectionTitle}>Counselling and coaching for real moments.</h2>
+          <h2 className={sectionTitle}>Support for moments that matter most.</h2>
           <p className={`${muted} mt-4`}>Choose focused support for personal, family, student and workplace wellbeing.</p>
         </div>
         <div className="grid min-w-0 gap-5 sm:grid-cols-2 xl:grid-cols-3">
@@ -158,7 +158,7 @@ export default function Home() {
       <ProductsCoursesSection />
 
       <section className="relative grid min-h-[430px] place-items-center overflow-hidden text-center text-white">
-        <img className="absolute inset-0 h-full w-full object-cover brightness-60" src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&w=1400&q=85" alt="Peaceful wellness session" />
+        <img className="absolute inset-0 h-full w-full object-cover brightness-[.58]" src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&w=1400&q=82" alt="Friendly online care conversation" />
         <div className="relative z-10 grid place-items-center gap-5 p-6 sm:p-8">
           <button className="grid h-16 w-16 place-items-center rounded-full bg-[#f47c68] sm:h-20 sm:w-20" aria-label="Play promo"><Play /></button>
           <h2 className="text-3xl font-black leading-tight sm:text-4xl md:text-5xl lg:text-6xl">How it works? Play and watch.</h2>
@@ -168,14 +168,14 @@ export default function Home() {
       <section className={`${section} grid min-w-0 items-center gap-10 bg-white lg:grid-cols-[minmax(0,1fr)_minmax(0,.72fr)]`}>
         <div>
           <span className={eyebrow}><Download size={16} /> Download App</span>
-          <h2 className={sectionTitle}>Carry your therapist, resources and calm resets with you.</h2>
-          <p className={`${muted} mt-4`}>Inspired by HealBoxx's app-first experience, this section brings the missing app download moment into the page with clear Google Play and App Store actions.</p>
+          <h2 className={sectionTitle}>Carry your therapist, tools and calm, always with you, wherever life takes you.</h2>
+          <p className={`${muted} mt-4`}>Get guided care, practical resources and calming support in one app, ready whenever you need help for work, family, study or personal wellbeing.</p>
           <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
-            <a className="rounded-lg bg-[#10201d] px-5 py-3 text-center font-black text-white" href="https://play.google.com/store/apps/details?id=com.healbox" target="_blank">Google Play</a>
-            <a className="rounded-lg bg-[#10201d] px-5 py-3 text-center font-black text-white" href="https://apps.apple.com/us/app/healboxx/id6444076704" target="_blank">App Store</a>
+            <a className="rounded-lg bg-[#10201d] px-5 py-3 text-center font-black text-white" href="https://play.google.com/store/apps/details?id=com.healbox" target="_blank" rel="noreferrer">Get it on Google Play</a>
+            <a className="rounded-lg bg-[#10201d] px-5 py-3 text-center font-black text-white" href="https://apps.apple.com/us/app/healboxx/id6444076704" target="_blank" rel="noreferrer">Download on the App Store</a>
           </div>
         </div>
-        <img className="mx-auto max-h-[520px] object-contain" src="https://healboxx.com/assets1/img/mockup.png" alt="HealBoxx app mockup" />
+        <img className="mx-auto max-h-[520px] rounded-[28px] object-cover shadow-[0_24px_70px_rgba(16,32,29,.18)]" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=82" alt="Mobile wellness app support" />
       </section>
 
       <section className={`${section} bg-[#f5faf7]`}>
@@ -215,12 +215,13 @@ export default function Home() {
         <div className="mb-9 max-w-2xl">
           <span className={eyebrow}>Client voices</span>
           <h2 className={sectionTitle}>People feel seen, heard and supported.</h2>
+          <p className={`${muted} mt-4`}>The strongest benefit is simple: care can stay with people anywhere, anytime, through calls, app tools and practical guidance.</p>
         </div>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            ["The session helped me understand my stress without feeling judged.", "Working professional"],
-            ["Flexible online counselling made it possible to stay consistent.", "College student"],
-            ["Our EAP session gave the team practical ways to reset.", "HR manager"]
+            ["Anytime care helped me manage stress before it became too heavy.", "Working professional"],
+            ["Anywhere access made it possible to stay consistent with support.", "College student"],
+            ["The app gave our team practical ways to reset during the workday.", "HR manager"]
           ].map(([quote, who]) => (
             <blockquote className={`${card} p-6 text-lg leading-8 text-[#10201d]`} key={who}>"{quote}"<span className="mt-5 block text-sm font-black text-[#63706d]">{who}</span></blockquote>
           ))}

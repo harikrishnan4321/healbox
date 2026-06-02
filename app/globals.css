@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fbfdf9;
-  --foreground: #10201d;
+  --background: #fcfdf9;
+  --foreground: #1e332f;
+  --heading: #1d342f;
+  --muted: #526862;
+  --brand: #0a7a69;
 }
 
 * {
@@ -23,10 +26,82 @@ body {
   max-width: 100%;
   overflow-x: clip;
   background:
-    linear-gradient(180deg, rgba(216, 243, 232, 0.42), transparent 420px),
+    linear-gradient(180deg, rgba(227, 244, 237, 0.34), transparent 420px),
     var(--background);
   color: var(--foreground);
-  font-family: "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: Inter, "Segoe UI", Arial, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+strong,
+.font-black {
+  font-family: Inter, "Segoe UI", Arial, ui-sans-serif, system-ui, sans-serif;
+  font-weight: 720;
+  letter-spacing: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--heading);
+}
+
+h1 {
+  font-size: clamp(2.35rem, 4vw, 4.75rem) !important;
+  line-height: 1.05 !important;
+}
+
+h2 {
+  font-size: clamp(2rem, 3vw, 3.6rem) !important;
+  line-height: 1.12 !important;
+}
+
+h3 {
+  font-size: clamp(1.15rem, 1.5vw, 1.55rem) !important;
+  line-height: 1.25 !important;
+}
+
+p,
+blockquote {
+  color: var(--muted);
+}
+
+section[class*="text-white"],
+footer,
+header {
+  color: white;
+}
+
+section[class*="text-white"] h1,
+section[class*="text-white"] h2,
+section[class*="text-white"] h3,
+section[class*="text-white"] p,
+footer p,
+footer h3 {
+  color: inherit;
+}
+
+@media (min-width: 1024px) {
+  main > section:not(:first-child) h2 {
+    max-width: 760px;
+  }
+}
+
+@media (max-width: 640px) {
+  h1 {
+    font-size: clamp(2rem, 10vw, 3rem) !important;
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 8vw, 2.65rem) !important;
+  }
+}
+
+.font-serif {
+  font-family: Inter, "Segoe UI", Arial, ui-sans-serif, system-ui, sans-serif;
 }
 
 a {
@@ -38,6 +113,10 @@ img,
 video {
   display: block;
   max-width: 100%;
+}
+
+img {
+  filter: saturate(0.88) contrast(0.96);
 }
 
 main,
