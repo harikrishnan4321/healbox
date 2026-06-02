@@ -14,7 +14,7 @@ export default function AboutPage() {
         eyebrow="About Us"
         title="A tech-enabled wellness platform with a human heart."
         text="HealBoxx brings therapy, coaching and self-care resources into one accessible experience for people, families and teams."
-        image="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=85"
+        image="https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&w=1200&q=82"
       />
       <section className="grid w-full max-w-full gap-5 overflow-hidden px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-16 lg:grid-cols-3 lg:px-14 lg:py-20">
         <article className={`${card} bg-[#d8f3e8]`}>

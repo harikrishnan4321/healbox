@@ -10,7 +10,7 @@ export default function StudentRegistrationPage() {
         eyebrow="Student Registration"
         title="Register students for guided wellness support."
         text="Share basic student details and choose the college from the available list."
-        image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=85"
+        image="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=82"
       />
       <section className="grid w-full max-w-full gap-6 overflow-hidden bg-gradient-to-br from-[#d8f3e8] to-[#fff4d6] px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-16 lg:grid-cols-[minmax(0,.72fr)_minmax(0,1fr)] lg:px-14 lg:py-20">
         <aside className="rounded-lg border border-[#dce8e3] bg-white/90 p-5 shadow-2xl sm:p-7 lg:sticky lg:top-28 lg:self-start">

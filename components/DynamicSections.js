@@ -14,28 +14,37 @@ import {
 } from "lucide-react";
 
 import { apiClient } from "@/lib/apiClient";
+import { expertsFallback, galleryFallback } from "@/data/siteContent";
 
 const pageSize = 6;
 
 const section =
-  "w-full max-w-full overflow-hidden px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-18 lg:px-14 lg:py-20";
+  "w-full max-w-full overflow-hidden px-4 py-10 sm:px-6 sm:py-12 md:px-10 md:py-14 lg:px-14 lg:py-16";
 
 const eyebrow =
-  "inline-flex items-center gap-2 text-xs font-black uppercase tracking-wide text-[#096454]";
+  "inline-flex items-center gap-2 text-xs font-black uppercase tracking-wide text-[#0a7a69]";
 
 const sectionHead = "mb-9 max-w-3xl";
 
 const sectionTitle =
-  "mt-3 text-balance text-3xl font-black leading-[1.05] text-[#10201d] sm:text-4xl md:text-5xl lg:text-6xl";
+  "mt-3 text-balance text-3xl font-black leading-[1.12] text-[#1d342f] sm:text-4xl lg:text-5xl";
 
 const sectionText =
-  "mt-4 text-base leading-7 text-[#63706d] sm:text-lg sm:leading-8";
+  "mt-4 text-base leading-7 text-[#526862] sm:text-lg sm:leading-8";
 
 const inputShell =
   "flex min-h-12 flex-1 items-center gap-3 rounded-lg border border-[#dce8e3] bg-white px-4 text-[#10201d]";
 
 const card =
   "overflow-hidden rounded-lg border border-[#dce8e3] bg-white shadow-[0_16px_40px_rgba(25,53,48,.08)] transition hover:-translate-y-1 hover:shadow-2xl";
+
+const priorityRoles = [
+  "Psychologist",
+  "Relationship Counsellor",
+  "Career Counsellor",
+  "Yoga and naturopathy consultant",
+  "Corporate Wellness Coach"
+];
 
 
 
@@ -64,11 +73,14 @@ export function GallerySection({ preview = false }) {
 
         const data = response.data;
 
-        setItems(data.data || []);
+        const nextItems = data.data || [];
+        setItems(nextItems.length ? nextItems : galleryFallback);
         setTotalPages(data.totalPages || 1);
 
       } catch (error) {
         console.log("Error fetching gallery:", error);
+        setItems(galleryFallback);
+        setTotalPages(1);
       } finally {
         setLoading(false);
       }
@@ -116,12 +128,13 @@ export function GallerySection({ preview = false }) {
           Gallery
         </span>
 
-        <h2 className="mt-3 text-balance text-3xl font-black leading-[1.05] sm:text-4xl md:text-5xl lg:text-6xl">
+        <h2 className="mt-3 text-balance text-3xl font-black leading-[1.12] sm:text-4xl lg:text-5xl">
           Moments that feel calm, human and hopeful.
         </h2>
 
         <p className="mt-4 text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
-          Gallery images are loaded dynamically from the API.
+          See how HealBoxx supports real care moments, from therapy calls and
+          family guidance to workplace wellness and app-based calm resets.
         </p>
       </div>
 
@@ -138,7 +151,7 @@ export function GallerySection({ preview = false }) {
                 setQuery(event.target.value);
                 setPage(1);
               }}
-              placeholder="Search gallery"
+              placeholder="Search care moments"
             />
           </label>
 
@@ -163,8 +176,8 @@ export function GallerySection({ preview = false }) {
                 {option === "all"
                   ? "All"
                   : option === "image"
-                  ? "Photos"
-                  : "GIFs"}
+                  ? "Care"
+                  : "Motion"}
               </button>
             ))}
           </div>
@@ -268,11 +281,14 @@ export function ExpertsSection({ preview = false }) {
         const data = response.data;
 
         // API response => data.data
-        setExperts(data.data || []);
+        const nextExperts = data.data || [];
+        setExperts(nextExperts.length ? nextExperts : expertsFallback);
         setTotalPages(data.totalPages || 1);
 
       } catch (error) {
         console.log("Error fetching experts:", error);
+        setExperts(expertsFallback);
+        setTotalPages(1);
       } finally {
         setLoading(false);
       }
@@ -286,7 +302,11 @@ export function ExpertsSection({ preview = false }) {
     return [
       "all",
       ...new Set(
-        experts.map((expert) => expert.designation)
+        experts
+          .map((expert) => expert.designation)
+          .filter((designation) =>
+            priorityRoles.includes(designation)
+          )
       ),
     ];
   }, [experts]);
@@ -322,8 +342,8 @@ export function ExpertsSection({ preview = false }) {
         </h2>
 
         <p className={sectionText}>
-          Experts are pulled from the API and displayed with
-          filters for easy discovery.
+          Find the right experts, handpicked for your comfort and needs.
+          Search by name or filter by the support you need most.
         </p>
       </div>
 
@@ -341,7 +361,7 @@ export function ExpertsSection({ preview = false }) {
                 setQuery(event.target.value);
                 setPage(1);
               }}
-              placeholder="Search experts"
+              placeholder="Search by name"
             />
           </label>
 

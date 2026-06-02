@@ -68,8 +68,8 @@ export function SiteHeader() {
             <div className="invisible absolute left-0 top-[calc(100%+10px)] grid min-w-[190px] translate-y-2 gap-1 rounded-lg border border-white/15 bg-[#10201d]/98 p-2 opacity-0 shadow-[0_24px_70px_rgba(4,16,14,.35)] transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
               {[
                 ["All gallery", "/gallery"],
-                ["Photos", "/gallery?type=image"],
-                ["Videos/GIFs", "/gallery?type=gif"]
+                ["Care moments", "/gallery?type=image"],
+                ["Motion moments", "/gallery?type=gif"]
               ].map(([label, href]) => (
                 <Link className="rounded-lg px-3 py-2 text-sm font-black text-white/80 transition hover:bg-white/10 hover:text-[#ffd35e]" href={href} key={href}>
                   {label}
@@ -119,8 +119,8 @@ export function SiteHeader() {
                 <div className="grid gap-1 border-t border-[#e5efeb] bg-[#f2fbf7] p-2">
                   {[
                     ["All gallery", "/gallery"],
-                    ["Photos", "/gallery?type=image"],
-                    ["Videos/GIFs", "/gallery?type=gif"]
+                    ["Care moments", "/gallery?type=image"],
+                    ["Motion moments", "/gallery?type=gif"]
                   ].map(([label, href]) => (
                     <Link className="rounded-xl px-3 py-2 text-sm font-black text-[#096454]" href={href} key={href}>
                       {label}
@@ -213,7 +213,7 @@ export function PageHero({ eyebrow, title, text, image }) {
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,15,13,.78),transparent_54%,rgba(5,15,13,.45)),radial-gradient(circle_at_18%_20%,rgba(50,216,199,.22),transparent_34%),linear-gradient(135deg,rgba(5,15,13,.92),rgba(9,100,84,.66))]" />
       <div className="relative z-10 min-w-0">
         <span className="inline-flex gap-2 text-xs font-black uppercase tracking-[.08em] text-[#9debdc]">{eyebrow}</span>
-        <h1 className="mt-4 max-w-[820px] text-balance text-4xl font-black leading-[.98] text-white sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl">{title}</h1>
+        <h1 className="mt-4 max-w-[760px] text-balance text-4xl font-black leading-[1.05] text-white sm:text-5xl lg:text-6xl">{title}</h1>
         <p className="mt-6 max-w-[660px] text-base leading-7 text-white/76 sm:text-lg sm:leading-8">{text}</p>
       </div>
       {image && (

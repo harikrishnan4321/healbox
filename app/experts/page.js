@@ -8,8 +8,8 @@ export default function ExpertsPage() {
       <PageHero
         eyebrow="Experts"
         title="Meet the professionals behind the care."
-        text="Expert profiles are fetched from the backend experts API with search and role filters."
-        image="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=85"
+        text="Find the right experts, handpicked for your comfort and needs, with simple search and the most relevant care filters."
+        image="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=82"
       />
       <ExpertsSection />
       <SiteFooter />

@@ -13,7 +13,7 @@ export default function ServicesPage() {
         eyebrow="Services"
         title="Focused support for mind, family and work life."
         text="Explore counselling and coaching options designed for everyday emotional wellness."
-        image="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1200&q=85"
+        image="https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=1200&q=82"
       />
       <section className="w-full max-w-full overflow-hidden px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-20 lg:px-14">
         <div className="grid min-w-0 gap-5 sm:grid-cols-2 xl:grid-cols-3">
