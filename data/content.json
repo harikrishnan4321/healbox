@@ -6,7 +6,7 @@
       "title": "HealBoxx Calm Kit",
       "category": "Self-care product",
       "price": "Rs.499",
-      "image": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=82",
+      "image": "/product-calm-kit.jpg",
       "description": "A guided wellness kit with mood prompts, breathing cards and daily reflection tools.",
       "status": "Featured"
     },
@@ -15,7 +15,7 @@
       "title": "Sleep Reset Audio Pack",
       "category": "Digital product",
       "price": "Rs.299",
-      "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=1200&q=82",
+      "image": "/product-sleep-reset.jpg",
       "description": "Short bedtime audio practices designed to slow down stress and support better rest.",
       "status": "New"
     },
@@ -24,7 +24,7 @@
       "title": "Workplace Wellness Toolkit",
       "category": "Corporate product",
       "price": "Custom",
-      "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=82",
+      "image": "/product-workplace-toolkit.jpg",
       "description": "Printable and digital resources for HR teams running calm, practical wellness programs.",
       "status": "Corporate"
     }
@@ -35,7 +35,7 @@
       "title": "Mindfulness Basics",
       "level": "Beginner",
       "duration": "4 weeks",
-      "image": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=82",
+      "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=85",
       "description": "Learn grounding, breathing and simple routines for everyday emotional balance.",
       "lessons": "12 lessons"
     },
@@ -44,7 +44,7 @@
       "title": "Stress and Resilience",
       "level": "Intermediate",
       "duration": "6 weeks",
-      "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=82",
+      "image": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=85",
       "description": "A practical course for work pressure, burnout signs and healthy recovery habits.",
       "lessons": "18 lessons"
     },
@@ -53,7 +53,7 @@
       "title": "Student Confidence Program",
       "level": "Guided",
       "duration": "3 weeks",
-      "image": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=82",
+      "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=85",
       "description": "Confidence, focus and interview readiness support for students and young professionals.",
       "lessons": "9 lessons"
     }
