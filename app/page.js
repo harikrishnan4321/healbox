@@ -3,6 +3,7 @@ import { ArrowRight, Download, Languages, LockKeyhole, Phone, Play, ShieldCheck,
 import { ExpertsSection, GallerySection } from "@/components/DynamicSections";
 import ProductsCoursesSection from "@/components/ProductsCoursesSection";
 import { ProfessionalStrip, SiteFooter, SiteHeader } from "@/components/SiteChrome";
+import StoreBadges from "@/components/StoreBadges";
 import { benefits, services } from "@/data/siteContent";
 
 const section = "w-full max-w-full overflow-hidden px-4 py-10 sm:px-6 sm:py-12 md:px-10 md:py-14 lg:px-14 lg:py-16";
@@ -170,10 +171,7 @@ export default function Home() {
           <span className={eyebrow}><Download size={16} /> Download App</span>
           <h2 className={sectionTitle}>Carry your therapist, tools and calm, always with you, wherever life takes you.</h2>
           <p className={`${muted} mt-4`}>Get guided care, practical resources and calming support in one app, ready whenever you need help for work, family, study or personal wellbeing.</p>
-          <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
-            <a className="rounded-lg bg-[#10201d] px-5 py-3 text-center font-black text-white" href="https://play.google.com/store/apps/details?id=com.healbox" target="_blank" rel="noreferrer">Get it on Google Play</a>
-            <a className="rounded-lg bg-[#10201d] px-5 py-3 text-center font-black text-white" href="https://apps.apple.com/us/app/healboxx/id6444076704" target="_blank" rel="noreferrer">Download on the App Store</a>
-          </div>
+          <StoreBadges className="mt-6" />
         </div>
         <img className="mx-auto max-h-[520px] rounded-[28px] object-cover shadow-[0_24px_70px_rgba(16,32,29,.18)]" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=82" alt="Mobile wellness app support" />
       </section>

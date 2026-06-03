@@ -1,5 +1,6 @@
 import { Download, Mail, MapPin, Phone } from "lucide-react";
 import { PageHero, SiteFooter, SiteHeader } from "@/components/SiteChrome";
+import StoreBadges from "@/components/StoreBadges";
 
 const card = "rounded-lg border border-[#dce8e3] bg-white p-5 shadow-[0_16px_40px_rgba(25,53,48,.08)] transition hover:-translate-y-1 hover:shadow-2xl sm:p-7";
 
@@ -19,10 +20,7 @@ export default function ContactPage() {
           <h2 className="mt-3 text-3xl font-black leading-tight sm:text-4xl">Support that fits every difficulty.</h2>
           <p className="mt-3 max-w-3xl text-base leading-7 text-white/76 sm:text-lg">HealBoxx helps differently across parenting, relationships, career pressure, low mood, student stress and workplace wellbeing, so the app feels tailor-made for what you are facing.</p>
         </div>
-        <div className="grid gap-3 sm:flex">
-          <a className="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#ffd35e] px-5 font-black text-[#10201d]" href="https://play.google.com/store/apps/details?id=com.healbox" target="_blank" rel="noreferrer">Google Play</a>
-          <a className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/30 bg-white/10 px-5 font-black text-white" href="https://apps.apple.com/us/app/healboxx/id6444076704" target="_blank" rel="noreferrer">App Store</a>
-        </div>
+        <StoreBadges />
       </section>
       <section className="grid w-full max-w-full gap-5 overflow-hidden px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-16 lg:grid-cols-3 lg:px-14 lg:py-20">
         <article className={card}>
