@@ -98,7 +98,7 @@ export default function Home() {
             </div>
             <div className="absolute bottom-3 left-3 right-3 rounded-2xl border border-white/25 bg-[#07110f]/55 p-3 text-white shadow-2xl backdrop-blur-md sm:bottom-5 sm:left-5 sm:right-5 sm:p-5">
               <span className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[.14em] text-[#9debdc] sm:text-xs sm:tracking-[.18em]"><Play size={14} /> HealBoxx care</span>
-              <p className="mt-2 text-balance text-xl font-black leading-tight sm:text-2xl lg:text-3xl">Video care that feels close, calm and human.</p>
+              <p className="mt-2 text-balance text-xl font-black leading-tight sm:text-2xl lg:text-3xl"> care that feels close, calm and human.</p>
             </div>
           </div>
         </div>
