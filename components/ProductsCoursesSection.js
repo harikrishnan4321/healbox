@@ -28,6 +28,16 @@ function normalizeItems(items) {
   return Array.isArray(items) ? items : [];
 }
 
+function getItemsFromResponse(response, key) {
+  const payload = response?.data;
+
+  if (Array.isArray(payload)) return payload;
+  if (Array.isArray(payload?.data)) return payload.data;
+  if (Array.isArray(payload?.[key])) return payload[key];
+
+  return [];
+}
+
 function ProductCard({ item }) {
   const price = formatPrice(item.price);
 
@@ -125,14 +135,14 @@ export default function ProductsCoursesSection() {
       ]);
 
       if (productsResult.status === "fulfilled") {
-        setProducts(normalizeItems(productsResult.value.data?.data));
+        setProducts(normalizeItems(getItemsFromResponse(productsResult.value, "products")));
       } else {
         setProducts([]);
         setProductError(getApiErrorMessage(productsResult.reason, "Unable to load products from the backend."));
       }
 
       if (coursesResult.status === "fulfilled") {
-        setCourses(normalizeItems(coursesResult.value.data?.data));
+        setCourses(normalizeItems(getItemsFromResponse(coursesResult.value, "courses")));
       } else {
         setCourses([]);
         setCourseError(getApiErrorMessage(coursesResult.reason, "Unable to load courses from the backend."));
@@ -155,7 +165,6 @@ export default function ProductsCoursesSection() {
             <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wide text-[#096454]"><PackageOpen size={16} /> Products</span>
             <h2 className="mt-3 text-balance text-3xl font-black leading-[1.05] text-[#10201d] sm:text-4xl md:text-5xl lg:text-6xl">Wellness products ready for everyday care.</h2>
           </div>
-          <p className="text-base leading-7 text-[#63706d] sm:text-lg sm:leading-8">This list is loaded from the backend product API.</p>
         </div>
 
         {loading ? (
@@ -177,7 +186,6 @@ export default function ProductsCoursesSection() {
             <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wide text-[#9debdc]"><GraduationCap size={16} /> Courses</span>
             <h2 className="mt-3 text-balance text-3xl font-black leading-[1.05] sm:text-4xl md:text-5xl lg:text-6xl">Guided courses for calm, confidence and growth.</h2>
           </div>
-          <p className="text-base leading-7 text-white/70 sm:text-lg sm:leading-8">This list is loaded from the backend course API.</p>
         </div>
 
         {loading ? (
