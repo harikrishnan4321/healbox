@@ -9,7 +9,7 @@ export default function HelloPage() {
     <main>
       <SiteHeader />
       <PageHero
-        eyebrow="Hello"
+        eyebrow="Contact Us"
         title="Start with one simple conversation."
         text="Reach out for counselling, family support, EAP sessions or app-based care made for the kind of help you need."
         image="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=82"

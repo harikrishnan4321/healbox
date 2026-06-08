@@ -343,7 +343,7 @@ export function ExpertsSection({ preview = false }) {
 
         <p className={sectionText}>
           Find the right experts, handpicked for your comfort and needs.
-          Search by name or filter by the support you need most.
+          The support you need most.
         </p>
       </div>
 

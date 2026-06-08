@@ -1,28 +1,33 @@
-import { FileBadge2, ShieldCheck, Star } from "lucide-react";
-import RegistrationForm from "@/components/RegistrationForm";
-import { PageHero, SiteFooter, SiteHeader } from "@/components/SiteChrome";
+"use client";
+
+import { useEffect } from "react";
+import { ExternalLink, FileBadge2 } from "lucide-react";
+import { SiteFooter, SiteHeader } from "@/components/SiteChrome";
+
+const professionalRegisterUrl = "https://healboxx-register-doctor.healboxx.com/";
 
 export default function RegisterPage() {
+  useEffect(() => {
+    window.location.replace(professionalRegisterUrl);
+  }, []);
+
   return (
     <main>
       <SiteHeader />
-      <PageHero
-        eyebrow="Professional Registration"
-        title="Join HealBoxx as a trusted wellness professional."
-        text="Register your practice details. The HealBoxx team will review your request and contact you."
-        image="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=1200&q=82"
-      />
-      <section className="grid w-full max-w-full gap-6 overflow-hidden bg-gradient-to-br from-[#d8f3e8] to-[#ece8ff] px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-16 lg:grid-cols-[minmax(0,.72fr)_minmax(0,1fr)] lg:px-14 lg:py-20">
-        <aside className="rounded-lg border border-[#dce8e3] bg-white/90 p-5 shadow-2xl sm:p-7 lg:sticky lg:top-28 lg:self-start">
-          <FileBadge2 className="h-14 w-14 rounded-lg bg-[#10201d] p-3 text-[#35d7ee]" />
-          <h2 className="mt-5 text-3xl font-black leading-[1.05] text-[#10201d] sm:text-4xl">Are you a professional?</h2>
-          <p className="mt-4 leading-7 text-[#63706d]">Share your details to be reviewed by the HealBoxx team. This is a simple user-side onboarding request.</p>
-          <div className="mt-6 grid gap-3">
-            <span className="inline-flex items-center gap-2 font-black text-[#096454]"><ShieldCheck size={17} /> Confidential review</span>
-            <span className="inline-flex items-center gap-2 font-black text-[#096454]"><Star size={17} /> Expert profile onboarding</span>
-          </div>
-        </aside>
-        <RegistrationForm />
+      <section className="grid min-h-[68vh] place-items-center bg-[#f8fffc] px-4 py-16 text-[#10201d] sm:px-6 md:px-10">
+        <div className="w-full max-w-xl rounded-lg border border-[#dce8e3] bg-white p-6 text-center shadow-[0_24px_70px_rgba(16,32,29,.12)] sm:p-8">
+          <FileBadge2 className="mx-auto h-14 w-14 rounded-lg bg-[#10201d] p-3 text-[#35d7ee]" />
+          <h1 className="mt-5 text-3xl font-black leading-tight sm:text-4xl">Opening professional registration.</h1>
+          <p className="mt-4 leading-7 text-[#63706d]">
+            You are being redirected to the HealBoxx professional registration portal.
+          </p>
+          <a
+            className="mt-6 inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#ffd35e] px-5 font-black text-[#10201d]"
+            href={professionalRegisterUrl}
+          >
+            Open registration <ExternalLink size={18} />
+          </a>
+        </div>
       </section>
       <SiteFooter />
     </main>

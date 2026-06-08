@@ -2,14 +2,16 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BriefcaseBusiness, ChevronDown, FileBadge2, GraduationCap, Menu, X } from "lucide-react";
+import { BriefcaseBusiness, ChevronDown, FileBadge2, Menu, X } from "lucide-react";
+
+const professionalRegisterUrl = "https://healboxx-register-doctor.healboxx.com/";
 
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
   { href: "/corporate-eap", label: "Corporate & EAP" },
   { href: "/experts", label: "Experts" },
-  { href: "/hello", label: "Hello" },
+  { href: "/hello", label: "Contact Us" },
   { href: "/blog", label: "Blog" }
 ];
 
@@ -84,20 +86,13 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-2 xl:flex">
-          <Link
+          <a
             className="inline-flex min-h-12 items-center gap-2 rounded-lg border border-white/25 bg-white/15 px-3 text-xs font-black text-white shadow-[inset_0_1px_rgba(255,255,255,.18)] transition hover:bg-white/25 2xl:px-4"
-            href="/register"
+            href={professionalRegisterUrl}
           >
             <FileBadge2 className="h-5 w-5 text-[#35d7ee]" />
             <span className="grid leading-tight">Professional<strong className="text-[#ffb21e]">Register</strong></span>
-          </Link>
-          <Link
-            className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-[#ffd35e] px-3 text-xs font-black text-[#10201d] shadow-lg transition hover:bg-[#ffe08a] 2xl:px-4"
-            href="/student-registration"
-          >
-            <GraduationCap className="h-5 w-5" />
-            <span className="grid leading-tight">Student<strong>Register</strong></span>
-          </Link>
+          </a>
         </div>
 
         <details className="group xl:hidden">
@@ -133,13 +128,10 @@ export function SiteHeader() {
                 <NavLink key={item.href} {...item} pathname={pathname} mobile />
               ))}
 
-              <div className="mt-2 grid gap-2 sm:grid-cols-2">
-                <Link className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-[#ffd35e] px-4 py-3 text-[15px] font-black text-[#10201d] shadow-lg" href="/register">
+              <div className="mt-2 grid gap-2">
+                <a className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-[#ffd35e] px-4 py-3 text-[15px] font-black text-[#10201d] shadow-lg" href={professionalRegisterUrl}>
                   Professional Register
-                </Link>
-                <Link className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-[#10201d] px-4 py-3 text-[15px] font-black text-white shadow-lg" href="/student-registration">
-                  Student Register
-                </Link>
+                </a>
               </div>
             </div>
           </nav>
@@ -181,8 +173,7 @@ export function SiteFooter() {
             ["Gallery", "/gallery"],
             ["Corporate & EAP", "/corporate-eap"],
             ["Experts", "/experts"],
-            ["Student Registration", "/student-registration"],
-            ["Hello", "/hello"],
+            ["Contact Us", "/hello"],
             ["Blog", "/blog"]
           ].map(([label, href]) => (
             <Link className="text-white/72 transition hover:text-[#ffd35e]" href={href} key={href}>{label}</Link>
@@ -190,9 +181,8 @@ export function SiteFooter() {
         </div>
         <div className="grid content-start gap-3">
           <h3 className="text-xl font-black">Connect</h3>
-          <Link className="text-white/72 transition hover:text-[#ffd35e]" href="/register">Professional Register</Link>
-          <Link className="text-white/72 transition hover:text-[#ffd35e]" href="/student-registration">Student Register</Link>
-          <Link className="text-white/72 transition hover:text-[#ffd35e]" href="/hello">Contact HealBoxx</Link>
+          <a className="text-white/72 transition hover:text-[#ffd35e]" href={professionalRegisterUrl}>Professional Register</a>
+          <Link className="text-white/72 transition hover:text-[#ffd35e]" href="/hello">Contact Us</Link>
           <Link className="text-white/72 transition hover:text-[#ffd35e]" href="/corporate-eap">Corporate Wellness</Link>
           <a className="mt-1 inline-flex min-h-11 w-fit items-center gap-2 rounded-lg bg-[#25d366] px-4 text-sm font-black text-[#07110f] shadow-lg" href="https://wa.me/917200045559" target="_blank" rel="noreferrer">
             <WhatsAppIcon className="h-5 w-5" /> WhatsApp Us
@@ -234,9 +224,9 @@ export function ProfessionalStrip() {
         <span className="font-black text-[#ffd35e]">Are you a professional?</span>
         <strong className="text-white/88">Join HealBoxx and support more people with trusted care.</strong>
       </div>
-      <Link className="inline-flex min-h-11 items-center justify-center rounded-lg bg-[#ffd35e] px-4 font-black text-[#10201d]" href="/register">
+      <a className="inline-flex min-h-11 items-center justify-center rounded-lg bg-[#ffd35e] px-4 font-black text-[#10201d]" href={professionalRegisterUrl}>
         Register Here
-      </Link>
+      </a>
     </section>
   );
 }
