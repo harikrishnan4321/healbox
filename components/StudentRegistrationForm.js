@@ -1,16 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { CheckCircle2, GraduationCap, Loader2, Send } from "lucide-react";
-import content from "@/data/content.json";
+import { useState } from "react";
+import { GraduationCap, Loader2, Send } from "lucide-react";
 import { apiClient } from "@/lib/apiClient";
-
-const colleges = content.colleges || [];
 
 const emptyForm = {
   name: "",
-  phone: "",
-  collegeID: ""
+  phone: ""
 };
 
 const labelClass = "grid gap-2 font-black text-[#334540]";
@@ -20,23 +16,10 @@ export default function StudentRegistrationForm() {
   const [form, setForm] = useState(emptyForm);
   const [status, setStatus] = useState("");
   const [saving, setSaving] = useState(false);
-  const [collegeList, setCollegeList] = useState([]);
+
   function update(event) {
     setForm({ ...form, [event.target.name]: event.target.value });
   }
-
-  useEffect(() => {
-    async function fetchColleges() {
-      try {
-        const response = await apiClient.get("/colleges/getnames");
-        setCollegeList(response.data.data || []);
-      }
-      catch (error) {
-        console.error("Error fetching colleges:", error);
-      }
-    }
-    fetchColleges();
-  }, []);
 
   async function submit(event) {
     event.preventDefault();
@@ -45,13 +28,9 @@ export default function StudentRegistrationForm() {
     setStatus("");
 
     try {
-      const registration = {
-        ...form,
-      };
-
       const response = await apiClient.post(
         "/students/addstudent",
-        registration
+        form
       );
 
       setForm(emptyForm);
@@ -103,27 +82,6 @@ export default function StudentRegistrationForm() {
           placeholder="Enter mobile number"
           required
         />
-      </label>
-
-      <label className={labelClass}>
-        College
-        <select
-          className={fieldClass}
-          name="collegeID"
-          value={form.collegeID}
-          onChange={update}
-          required
-        >
-          <option value="" disabled>
-            Select college
-          </option>
-
-          {collegeList.map((college) => (
-            <option value={college._id} key={college._id}>
-              {college.name}
-            </option>
-          ))}
-        </select>
       </label>
 
       <button className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-gradient-to-r from-[#0f8d7a] to-[#13aa91] px-5 text-sm font-black text-white shadow-lg disabled:opacity-60 sm:text-base" type="submit" disabled={saving}>

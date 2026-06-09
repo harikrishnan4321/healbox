@@ -29,42 +29,56 @@ function StudentLogin({ onLogin }) {
   }
 
   return (
-    <section className="grid w-full max-w-full place-items-center overflow-hidden bg-[#f8fffc] px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-16 lg:px-14 lg:py-20">
-      <form className="w-full max-w-md rounded-lg border border-[#dce8e3] bg-white p-5 shadow-[0_24px_70px_rgba(16,32,29,.12)] sm:p-7" onSubmit={handleSubmit}>
-        <LockKeyhole className="h-14 w-14 rounded-lg bg-[#10201d] p-3 text-[#35d7ee]" />
-        <h2 className="mt-5 text-3xl font-black leading-tight text-[#10201d]">Student login</h2>
-        <p className="mt-3 leading-7 text-[#63706d]">Login first to continue to the student registration form.</p>
+    <section className="grid w-full max-w-full overflow-hidden bg-[#f8fffc] px-4 py-10 sm:px-6 sm:py-12 md:px-10 md:py-14 lg:px-14 lg:py-20">
+      <div className="mx-auto grid w-full max-w-5xl gap-5 rounded-lg border border-[#dce8e3] bg-white p-4 shadow-[0_24px_70px_rgba(16,32,29,.12)] sm:p-6 md:grid-cols-[minmax(0,.9fr)_minmax(320px,1fr)] md:p-7 lg:p-8">
+        <div className="rounded-lg bg-[#10201d] p-5 text-white sm:p-6 md:flex md:flex-col md:justify-between">
+          <div>
+            <LockKeyhole className="h-14 w-14 rounded-lg bg-white/10 p-3 text-[#35d7ee]" />
+            <h2 className="mt-5 text-3xl font-black leading-tight sm:text-4xl">Student login</h2>
+            <p className="mt-3 max-w-md text-base leading-7 text-white/72">Login first to continue to the student registration form.</p>
+          </div>
+          <p className="mt-8 rounded-lg border border-white/15 bg-white/10 p-4 text-sm font-black leading-6 text-[#9debdc]">
+            Direct student registration access
+          </p>
+        </div>
 
-        <label className="mt-6 grid gap-2 text-sm font-black text-[#10201d]">
-          Email or mobile number
-          <input
-            className="min-h-12 rounded-lg border border-[#dce8e3] bg-[#f8fffc] px-4 font-medium outline-none transition focus:border-[#096454] focus:bg-white"
-            name="user"
-            onChange={updateValue}
-            placeholder="Enter email or mobile"
-            type="text"
-            value={values.user}
-          />
-        </label>
+        <form className="grid content-center gap-4 p-1 sm:p-2" onSubmit={handleSubmit}>
+          <div>
+            <h3 className="text-2xl font-black leading-tight text-[#10201d] sm:text-3xl">Access registration</h3>
+            <p className="mt-2 text-sm leading-6 text-[#63706d] sm:text-base">Enter your login details to continue.</p>
+          </div>
 
-        <label className="mt-4 grid gap-2 text-sm font-black text-[#10201d]">
-          Password
-          <input
-            className="min-h-12 rounded-lg border border-[#dce8e3] bg-[#f8fffc] px-4 font-medium outline-none transition focus:border-[#096454] focus:bg-white"
-            name="password"
-            onChange={updateValue}
-            placeholder="Enter password"
-            type="password"
-            value={values.password}
-          />
-        </label>
+          <label className="grid gap-2 text-sm font-black text-[#10201d]">
+            Email 
+            <input
+              className="min-h-12 w-full rounded-lg border border-[#dce8e3] bg-[#f8fffc] px-4 font-medium outline-none transition focus:border-[#096454] focus:bg-white focus:ring-4 focus:ring-[#096454]/10"
+              name="user"
+              onChange={updateValue}
+              placeholder="Enter email "
+              type="text"
+              value={values.user}
+            />
+          </label>
 
-        {error && <p className="mt-4 rounded-lg bg-red-50 px-4 py-3 text-sm font-black text-red-700">{error}</p>}
+          <label className="grid gap-2 text-sm font-black text-[#10201d]">
+            Password
+            <input
+              className="min-h-12 w-full rounded-lg border border-[#dce8e3] bg-[#f8fffc] px-4 font-medium outline-none transition focus:border-[#096454] focus:bg-white focus:ring-4 focus:ring-[#096454]/10"
+              name="password"
+              onChange={updateValue}
+              placeholder="Enter password"
+              type="password"
+              value={values.password}
+            />
+          </label>
 
-        <button className="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-[#ffd35e] px-5 font-black text-[#10201d] transition hover:bg-[#ffe08a]" type="submit">
-          Login and continue
-        </button>
-      </form>
+          {error && <p className="rounded-lg bg-red-50 px-4 py-3 text-sm font-black text-red-700">{error}</p>}
+
+          <button className="inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-[#ffd35e] px-5 font-black text-[#10201d] transition hover:bg-[#ffe08a]" type="submit">
+            Login and continue
+          </button>
+        </form>
+      </div>
     </section>
   );
 }
@@ -84,10 +98,10 @@ function StudentFormSection({ onLogout }) {
           </button>
         </div>
         <h2 className="mt-5 text-3xl font-black leading-[1.05] text-[#10201d] sm:text-4xl">Student wellness access.</h2>
-        <p className="mt-4 leading-7 text-[#63706d]">Complete the form by providing your name, contact number, and college.</p>
+        <p className="mt-4 leading-7 text-[#63706d]">Complete the form by providing your name and contact number.</p>
         <div className="mt-6 grid gap-3">
           <span className="inline-flex items-center gap-2 font-black text-[#096454]"><ShieldCheck size={17} /> Simple student details</span>
-          <span className="inline-flex items-center gap-2 font-black text-[#096454]"><UsersRound size={17} /> College-based registration</span>
+          <span className="inline-flex items-center gap-2 font-black text-[#096454]"><UsersRound size={17} /> Direct access registration</span>
         </div>
       </aside>
       <StudentRegistrationForm />
